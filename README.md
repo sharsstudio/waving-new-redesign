@@ -3,7 +3,7 @@ Re-design of the UI/UX for a B2B-Website using a new CI/CD which includes new lo
 ## 🎨 Design System & Identity
 To maintain the visual consistency of "New Wave," the following style guidelines were implemented in the CSS:
 
-**New Color Palette:**
+**New Color Palette (RGB references):**
 * `#002b49` (Primary Navy)
 * `#8b734e` (Gold Accent)
 * `#dbd9cc` (Neutral Beige)
