@@ -1,5 +1,5 @@
 # waving-new-redesign / New Wave GmbH - E-Commerce Redesign
-Re-design of the UI/UX for a B2B-Website using a new CI/CD which includes new logo, new colors and new fonts. The new colors were chosen with the purpose to reach a better look and feel on the website and making the user experience a better one.
+Re-design of the UI/UX for a B2B-Website using a new CI/CD which includes new logo, new colors and new fonts. With help of vibe coding (Google Gemini Pro & Antigravity) and trying to learn and improve de issues by myself. The new colors were chosen with the purpose to reach a better look and feel on the website and making the user experience a better one. 
 ## 🎨 Design System & Identity
 To maintain the visual consistency of "New Wave," the following style guidelines were implemented in the CSS:
 
