@@ -1,0 +1,114 @@
+<style>
+  .sponsoren-container {
+    background-color: #dbd9cc;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+    color: #002b49;
+    overflow: hidden; /* Para que el slider funcione correctamente */
+  }
+
+  .sponsoren-container h2 {
+    color: #002b49;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.2em;
+  }
+
+  .sponsoren-slider-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1200px; /* Ancho máximo del slider */
+    margin: 0 auto;
+    overflow: hidden;
+    white-space: nowrap;
+    border-radius: 10px;
+    background-color: #f3f3f1;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .sponsoren-slider {
+    display: inline-block;
+    white-space: nowrap;
+    animation: slide 15s linear infinite; /* Ajusta la duración para cambiar la velocidad */
+  }
+
+  .sponsoren-item {
+    display: inline-block;
+    margin: 0 20px;
+    text-align: center;
+    vertical-align: middle;
+    width: 180px; /* Ancho de cada logo */
+  }
+
+  .sponsoren-item img {
+    max-width: 150px;
+    height: auto;
+    border-radius: 8px;
+    background-color: #ffffff; /* Fondo blanco para los logos */
+    padding: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .sponsoren-item p {
+    color: #000000;
+    margin-top: 10px;
+    font-size: 0.9em;
+    font-weight: bold;
+  }
+
+  @keyframes slide {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  /* Para pausar la animación al pasar el ratón */
+  .sponsoren-slider-wrapper:hover .sponsoren-slider {
+    animation-play-state: paused;
+  }
+</style>
+
+<div class="sponsoren-container">
+  <h2>WIR SIND STOLZ, DIESE UND WEITERE TEAMS ZU SPONSOREN!</h2>
+  <div class="sponsoren-slider-wrapper">
+    <div class="sponsoren-slider">
+      <div class="sponsoren-item">
+        <img src="https://i.imgur.com/your-image-1-url.png" alt="SC DHfK Handball Logo">
+        <p>SC DHfK Handball</p>
+      </div>
+      <div class="sponsoren-item">
+        <img src="https://i.imgur.com/your-image-2-url.png" alt="Dresdner SC 1898 Logo">
+        <p>Dresdner SC 1898</p>
+      </div>
+      <div class="sponsoren-item">
+        <img src="https://i.imgur.com/your-image-3-url.png" alt="SV Darmstadt 1898 Logo">
+        <p>SV Darmstadt 1898</p>
+      </div>
+      <div class="sponsoren-item">
+        <img src="https://i.imgur.com/your-image-4-url.png" alt="SYNTAINICS MBC Logo">
+        <p>SYNTAINICS MBC</p>
+      </div>
+
+      <div class="sponsoren-item">
+        <img src="https://i.imgur.com/your-image-1-url.png" alt="SC DHfK Handball Logo">
+        <p>SC DHfK Handball</p>
+      </div>
+      <div class="sponsoren-item">
+        <img src="https://i.imgur.com/your-image-2-url.png" alt="Dresdner SC 1898 Logo">
+        <p>Dresdner SC 1898</p>
+      </div>
+      <div class="sponsoren-item">
+        <img src="https://i.imgur.com/your-image-3-url.png" alt="SV Darmstadt 1898 Logo">
+        <p>SV Darmstadt 1898</p>
+      </div>
+      <div class="sponsoren-item">
+        <img src="https://i.imgur.com/your-image-4-url.png" alt="SYNTAINICS MBC Logo">
+        <p>SYNTAINICS MBC</p>
+      </div>
+    </div>
+  </div>
+</div>
