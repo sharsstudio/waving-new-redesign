@@ -22,7 +22,7 @@
 
   .nw-sustain-slider-section * { box-sizing: border-box; }
 
-  /* Elemento decorativo de fondo */
+
   .nw-bg-leaf-slider {
     position: absolute;
     top: -50px;
@@ -188,7 +188,6 @@
     display: inline-block;
     background-color: var(--nw-blue); 
     
-    /* AQUÍ ESTÁ EL CAMBIO: !important para forzar el blanco */
     color: #ffffff !important; 
     
     border: 2px solid var(--nw-blue);
@@ -204,7 +203,7 @@
   .nw-btn-slider:hover {
     background-color: var(--nw-white);
     
-    /* AQUÍ ESTÁ EL CAMBIO: !important para forzar el azul al pasar el mouse */
+
     color: var(--nw-blue) !important;
     
     border-color: var(--nw-blue);
