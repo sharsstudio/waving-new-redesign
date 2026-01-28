@@ -1,114 +1,130 @@
 <style>
-  .sponsoren-container {
-    background-color: #dbd9cc;
-    padding: 40px 20px;
-    font-family: Arial, sans-serif;
-    color: #002b49;
-    overflow: hidden; /* Para que el slider funcione correctamente */
-  }
+/* Font importation through google so my code could work and be compatible with my Optimizely Interface */
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;600;700&display=swap');
 
-  .sponsoren-container h2 {
-    color: #002b49;
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 2.2em;
-  }
+/* --- CSS --- */
+  
+@keyframes scroll-logos {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
 
-  .sponsoren-slider-wrapper {
-    position: relative;
+
+#logo-slider-container-premium {
+    background: linear-gradient(to bottom, #dbd9cc, #e6e4d9); /* Tus colores base */
+    padding: 50px 20px; /* Padding generoso */
+    box-shadow: inset 0 0 20px rgba(0, 43, 73, 0.05);
+    text-align: center; /* Centrar textos */
+}
+
+
+.slider-title-premium {
+    font-family: 'Source Serif Pro', 'Times New Roman', serif; /* Tu fuente solicitada */
+    font-size: 32px; /* Tamaño grande y legible */
+    font-weight: 700;
+    color: #002b49;
+    margin: 0 0 15px 0;
+    line-height: 1.2;
+}
+
+.slider-description-premium {
+    font-family: 'Futura', 'Trebuchet MS', Arial, sans-serif; /* Tu fuente solicitada + fallbacks */
+    font-size: 16px;
+    color: #002b49; /* Usamos el azul oscuro para contraste */
+    margin: 0 auto 40px auto; /* Margen inferior grande para separar del slider */
+    max-width: 800px; /* Evita que el texto se estire demasiado a lo ancho */
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+
+.slider-track-viewport-premium {
     width: 100%;
-    max-width: 1200px; /* Ancho máximo del slider */
-    margin: 0 auto;
+    height: 200px;
     overflow: hidden;
-    white-space: nowrap;
-    border-radius: 10px;
-    background-color: #f3f3f1;
-    padding: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  }
+    position: relative;
+    background: linear-gradient(to bottom, #f9f9f7, #f3f3f1);
+    border-top: 1px solid rgba(0, 43, 73, 0.1);
+    border-bottom: 1px solid rgba(0, 43, 73, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
 
-  .sponsoren-slider {
-    display: inline-block;
-    white-space: nowrap;
-    animation: slide 15s linear infinite; /* Ajusta la duración para cambiar la velocidad */
-  }
 
-  .sponsoren-item {
-    display: inline-block;
-    margin: 0 20px;
-    text-align: center;
-    vertical-align: middle;
-    width: 180px; /* Ancho de cada logo */
-  }
+.slider-track-viewport-premium::before,
+.slider-track-viewport-premium::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 120px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
 
-  .sponsoren-item img {
-    max-width: 150px;
-    height: auto;
-    border-radius: 8px;
-    background-color: #ffffff; /* Fondo blanco para los logos */
-    padding: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  }
+.slider-track-viewport-premium::before {
+    left: 0;
+    background: linear-gradient(to right, #f3f3f1 15%, rgba(243, 243, 241, 0) 100%);
+}
 
-  .sponsoren-item p {
-    color: #000000;
-    margin-top: 10px;
-    font-size: 0.9em;
-    font-weight: bold;
-  }
+.slider-track-viewport-premium::after {
+    right: 0;
+    background: linear-gradient(to left, #f3f3f1 15%, rgba(243, 243, 241, 0) 100%);
+}
 
-  @keyframes slide {
-    0% {
-      transform: translateX(0%);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
-  }
+.logo-slider-track-premium {
+    display: flex;
+    width: max-content;
+    height: 100%;
+    align-items: center;
+    animation: scroll-logos 60s linear infinite; /* Velocidad suave */
+}
 
-  /* Para pausar la animación al pasar el ratón */
-  .sponsoren-slider-wrapper:hover .sponsoren-slider {
-    animation-play-state: paused;
-  }
+.logo-item-premium {
+    flex-shrink: 0;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-item-premium img {
+    max-height: 120px;
+    max-width: 280px;
+    object-fit: contain;
+    filter: grayscale(100%) contrast(90%);
+    opacity: 0.6;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: scale(1);
+}
+
+.logo-item-premium:hover img {
+    filter: grayscale(0%) contrast(100%);
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+@media (max-width: 600px) {
+    .slider-title-premium { font-size: 24px; }
+    .slider-description-premium { font-size: 14px; padding: 0 15px; }
+}
 </style>
-
-<div class="sponsoren-container">
-  <h2>WIR SIND STOLZ, DIESE UND WEITERE TEAMS ZU SPONSOREN!</h2>
-  <div class="sponsoren-slider-wrapper">
-    <div class="sponsoren-slider">
-      <div class="sponsoren-item">
-        <img src="https://i.imgur.com/your-image-1-url.png" alt="SC DHfK Handball Logo">
-        <p>SC DHfK Handball</p>
-      </div>
-      <div class="sponsoren-item">
-        <img src="https://i.imgur.com/your-image-2-url.png" alt="Dresdner SC 1898 Logo">
-        <p>Dresdner SC 1898</p>
-      </div>
-      <div class="sponsoren-item">
-        <img src="https://i.imgur.com/your-image-3-url.png" alt="SV Darmstadt 1898 Logo">
-        <p>SV Darmstadt 1898</p>
-      </div>
-      <div class="sponsoren-item">
-        <img src="https://i.imgur.com/your-image-4-url.png" alt="SYNTAINICS MBC Logo">
-        <p>SYNTAINICS MBC</p>
-      </div>
-
-      <div class="sponsoren-item">
-        <img src="https://i.imgur.com/your-image-1-url.png" alt="SC DHfK Handball Logo">
-        <p>SC DHfK Handball</p>
-      </div>
-      <div class="sponsoren-item">
-        <img src="https://i.imgur.com/your-image-2-url.png" alt="Dresdner SC 1898 Logo">
-        <p>Dresdner SC 1898</p>
-      </div>
-      <div class="sponsoren-item">
-        <img src="https://i.imgur.com/your-image-3-url.png" alt="SV Darmstadt 1898 Logo">
-        <p>SV Darmstadt 1898</p>
-      </div>
-      <div class="sponsoren-item">
-        <img src="https://i.imgur.com/your-image-4-url.png" alt="SYNTAINICS MBC Logo">
-        <p>SYNTAINICS MBC</p>
-      </div>
-    </div>
-  </div>
+<div id="logo-slider-container-premium">
+<h2 class="slider-title-premium"><span style="color: rgb(0, 43, 73);">For World Champions and Everyday Heroes.</span></h2>
+<p class="slider-description-premium">Von Nachwuchsteams bis hin zu ambitionierten Vereinen: Zahlreiche Teams setzen bereits auf Craft Teamwear f&uuml;r Training, Spieltag und Offcourt.</p>
+<div class="slider-track-viewport-premium">
+<div class="logo-slider-track-premium">
+<div class="logo-item-premium"><img src="/epiui/CMS/Content/globalassets/new-wave-germany/ab-2026/seiteninhalte/craft-seite-und-unterseiten/svdarmstadt_logo_png.png,,129178?epieditmode=false" alt="Team 1" width="920" height="920"></div>
+<div class="logo-item-premium"><img src="/epiui/CMS/Content/globalassets/new-wave-germany/ab-2026/seiteninhalte/craft-seite-und-unterseiten/1.fc-lokomotive-leipzig_logo.png,,129206?epieditmode=false" alt="Team 6" width="866" height="868"></div>
+<div class="logo-item-premium"><img src="/epiui/CMS/Content/globalassets/new-wave-germany/ab-2026/seiteninhalte/craft-seite-und-unterseiten/drednersc_logo_png.png,,129177?epieditmode=false" alt="Team 7" width="618" height="618"></div>
+<div class="logo-item-premium"><img src="/epiui/CMS/Content/globalassets/new-wave-germany/ab-2026/seiteninhalte/craft-seite-und-unterseiten/bad-wilbungen-vipers_logo.png,,129207?epieditmode=false" alt="Team 8" width="100" height="100"></div>
+<div class="logo-item-premium"><img src="/epiui/CMS/Content/globalassets/new-wave-germany/ab-2026/seiteninhalte/craft-seite-und-unterseiten/dhfkleipzig_logo_png.png,,129176?epieditmode=false" alt="Team 1" width="500" height="500"></div>
+<div class="logo-item-premium"><img src="/epiui/CMS/Content/globalassets/new-wave-germany/ab-2026/seiteninhalte/craft-seite-und-unterseiten/syntainicsmbc_logo_png.png,,129175?epieditmode=false" alt="Team 3" width="200" height="200"></div>
+<div class="logo-item-premium"><img src="/epiui/CMS/Content/globalassets/new-wave-germany/ab-2026/seiteninhalte/craft-seite-und-unterseiten/svdarmstadt_logo_png.png,,129178?epieditmode=false" alt="Team 5" width="920" height="920"></div>
+<div class="logo-item-premium"><img src="/epiui/CMS/Content/globalassets/new-wave-germany/ab-2026/seiteninhalte/craft-seite-und-unterseiten/1.fc-lokomotive-leipzig_logo.png,,129206?epieditmode=false" alt="Team 6" width="866" height="868"></div>
+<div class="logo-item-premium"><img src="/epiui/CMS/Content/globalassets/new-wave-germany/ab-2026/seiteninhalte/craft-seite-und-unterseiten/drednersc_logo_png.png,,129177?epieditmode=false" alt="Team 7" width="618" height="618"></div>
+<div class="logo-item-premium"><img src="/epiui/CMS/Content/globalassets/new-wave-germany/ab-2026/seiteninhalte/craft-seite-und-unterseiten/bad-wilbungen-vipers_logo.png,,129207?epieditmode=false" alt="Team 8" width="100" height="100"></div>
+<div class="logo-item-premium"><img src="/epiui/CMS/Content/globalassets/new-wave-germany/ab-2026/seiteninhalte/craft-seite-und-unterseiten/dhfkleipzig_logo_png.png,,129176?epieditmode=false" alt="Team 1" width="500" height="500"></div>
+<div class="logo-item-premium"><img src="/epiui/CMS/Content/globalassets/new-wave-germany/ab-2026/seiteninhalte/craft-seite-und-unterseiten/syntainicsmbc_logo_png.png,,129175?epieditmode=false" alt="Team 3" width="200" height="200"></div>
+</div>
+</div>
 </div>
