@@ -1,6 +1,6 @@
 # waving-new-redesign / New Wave GmbH - E-Commerce Redesign
 Re-design of the UI/UX for a B2B-Website using a new CI/CD which includes new logo, new colors and new fonts. With help of vibe coding (Google Gemini Pro & Antigravity) and trying to learn and improve de issues by myself. The new colors were chosen with the purpose to reach a better look and feel on the website and making the user experience a better one. The information used on the "Nachhaltigkeit-Slider" was based on the Sustainability report 2024 from the New Wave Group AB. 
-## 🎨 Design System & Identity
+## Design System & Identity
 To maintain the visual consistency of "New Wave," the following style guidelines were implemented in the CSS:
 
 ##New Color Palette (RGB references):
@@ -13,7 +13,7 @@ To maintain the visual consistency of "New Wave," the following style guidelines
 * Headings: `Source Serif Pro` (Serif)
 * Body/UI: `Futura` / `Century Gothic` (Sans-serif)
 
-## 💡 The Challenge (Problem Solving)
+## The Challenge (Problem Solving)
 The original design lacked visual feedback (responsiveness) and did not reflect the brand's elegance.
 
 **Objectives:**
@@ -21,7 +21,7 @@ The original design lacked visual feedback (responsiveness) and did not reflect 
 2.  Ensure corporate colors have sufficient contrast for accessibility.
 3.  Improve visual hierarchy by combining Serif and Sans-serif fonts.
 
-## 🛠️ Technical Solution
+## Technical Solution
 I used **CSS Grid and Flexbox** for the layout, avoiding heavy frameworks to improve load speed. I implemented CSS variables (`:root`) to manage corporate colors efficiently.
 
 ```css
