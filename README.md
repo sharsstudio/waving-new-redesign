@@ -6,7 +6,7 @@
 
 ## 📖 Project Overview
 
-This project involved the comprehensive technical and visual redesign of the **New Wave GmbH / Craft Sportswear** B2B platform. As the **Technical E-Commerce Lead**, I managed the end-to-end execution, moving from a legacy architecture to a high-performance, responsive environment.
+This project involved the comprehensive technical and visual redesign of the **New Wave GmbH / Craft Sportswear** B2B platform (https://www.newwave-germany.de). As the **Technical E-Commerce Lead**, I managed the end-to-end execution, moving from a legacy architecture to a high-performance, responsive environment.
 
 The goal was to create a **minimalist, luxurious interface** that aligns with the brand's premium identity while optimizing the B2B purchasing journey for international partners.
 
