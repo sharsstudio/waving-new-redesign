@@ -1,0 +1,165 @@
+<style>
+  :root {
+    --color-gold: #8b734e;
+    --color-beige: #dbd9cc;
+    --color-black: #000000;
+    --color-navy: #002b49;
+    --color-offwhite: #f3f3f1;
+    --font-serif: 'Source Serif Pro', serif;
+    --font-sans: 'Futura', 'Century Gothic', sans-serif;
+  }
+
+  body {
+    background-color: var(--color-offwhite);
+    color: var(--color-black);
+    font-family: var(--font-serif);
+    margin: 0;
+    padding: 4rem 2rem; /* Más padding arriba/abajo */
+  }
+
+  h1 {
+    font-family: var(--font-sans);
+    color: var(--color-navy);
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 2rem;
+    letter-spacing: 4px;
+    margin-bottom: 5rem;
+  }
+
+  /* --- LAYOUT ZIG-ZAG --- */
+  .zigzag-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
+    gap: 6rem; /* Mucho espacio entre columnas para aire */
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  /* --- LA TARJETA --- */
+  .art-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    group: hover; /* Para efectos */
+  }
+
+  /* El truco del desplazamiento: Los items pares bajan */
+  .art-card:nth-child(even) {
+    margin-top: 8rem; /* Esto crea el efecto Zig Zag */
+  }
+
+  /* Contenedor de Imagen */
+  .img-frame {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--color-navy);
+    box-shadow: 10px 10px 0 var(--color-beige); /* Sombra clara fija */
+    transition: all 0.4s ease;
+  }
+
+  .img-frame img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 2/3; /* Formato retrato puro */
+    object-fit: cover;
+    filter: grayscale(100%); /* New Wave: Empieza en B/N */
+    transition: all 0.5s ease;
+  }
+
+  /* --- NÚMEROS GIGANTES (Overlay) --- */
+  .index-number {
+    position: absolute;
+    top: -40px;
+    left: -20px;
+    font-family: var(--font-serif);
+    font-size: 5rem;
+    color: var(--color-gold);
+    font-weight: 900;
+    z-index: 2;
+    line-height: 1;
+    /* Texto con contorno (opcional, muy moderno) */
+    -webkit-text-stroke: 1px var(--color-navy); 
+  }
+
+  /* --- TEXTO --- */
+  .card-info {
+    margin-top: 1.5rem;
+    padding-left: 1rem;
+    border-left: 2px solid var(--color-gold);
+    transition: border-left-width 0.3s ease;
+  }
+
+  .art-card h2 {
+    font-family: var(--font-sans);
+    color: var(--color-navy);
+    font-size: 1.5rem;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  .art-card p {
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 0.5rem;
+  }
+
+  /* --- HOVER EFFECTS --- */
+  .art-card:hover .img-frame {
+    transform: translate(-5px, -5px);
+    box-shadow: 15px 15px 0 var(--color-gold); /* La sombra cambia a oro */
+    border-color: var(--color-black);
+  }
+
+  .art-card:hover .img-frame img {
+    filter: grayscale(0%); /* Vuelve el color */
+    transform: scale(1.05);
+  }
+
+  .art-card:hover .card-info {
+    border-left-width: 8px; /* Línea se hace más gruesa */
+  }
+
+  /* --- RESPONSIVE --- */
+  @media (max-width: 768px) {
+    .zigzag-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    .art-card:nth-child(even) {
+      margin-top: 0; /* Quitamos el zigzag en móvil */
+    }
+    .index-number {
+      font-size: 3rem;
+      top: -20px;
+    }
+  }
+</style>
+<h1>NEW WAVE BLOG</h1>
+<div class="zigzag-grid"><a href="#" class="art-card"><span class="index-number">01</span>
+<div class="img-frame"><img src="/epiui/CMS/Content/globalassets/new-wave-germany/seiteninhalte/blog/nw_produktdesmonats_april25_500x600px_blog.jpg,,116504?epieditmode=false" alt="Post 1" width="494" height="489"></div>
+<div class="card-info">
+<h2>Idee nummer 1</h2>
+<p>C&oacute;mo construir una marca s&oacute;lida en 2026.</p>
+</div>
+</a><a href="#" class="art-card"><span class="index-number">02</span>
+<div class="img-frame"><img src="/epiui/CMS/Content/globalassets/craft/l1060216-lowres.jpg,,72774?epieditmode=false" alt="Beitrag 1" width="355" height="588"></div>
+<div class="card-info">
+<h2>Beitrag Nummer 2&nbsp;</h2>
+<p>La intersecci&oacute;n entre arte y algoritmos.</p>
+</div>
+</a><a href="#" class="art-card"><span class="index-number">03</span>
+<div class="img-frame"><img src="/epiui/CMS/Content/globalassets/new-wave-germany/seiteninhalte/uber-uns/unsere-marken/355428_356420_oakvillehzedgemontchinos_ss26_1.jpg,,146913?epieditmode=false" alt="Post 3" width="478" height="707"></div>
+<div class="card-info">
+<h2>Beitrag nummer 3</h2>
+<p>Patrones de dise&ntilde;o que aumentan ventas.</p>
+</div>
+</a><a href="#" class="art-card"><span class="index-number">04</span>
+<div class="img-frame"><img src="/epiui/CMS/Content/globalassets/new-wave-germany/seiteninhalte/uber-uns/unsere-marken/355428_356420_oakvillehzedgemontchinos_ss26_1.jpg,,146913?epieditmode=false" alt="Post 3" width="478" height="707"></div>
+<div class="card-info">
+<h2>Beitrag nummer 4</h2>
+<p>Impacto del azul navy en la confianza corporativa.</p>
+</div>
+</a></div>
