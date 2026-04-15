@@ -1,0 +1,170 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;600;700&display=swap');
+
+  /* =========================================
+     Section Container Marken und willkommen bei der New Wave GmbH
+     ========================================= */
+  .nw-intro-clean {
+    --nw-blue: #002b49;
+    --nw-black: #000000;
+    --nw-beige: #8b734e;
+    --nw-light: #f3f3f1;
+    --nw-white: #ffffff;
+    
+    background-color: var(--nw-white);
+    padding: 90px 20px;
+    font-family: 'Futura', 'Century Gothic', sans-serif;
+    box-sizing: border-box;
+    /* Quitamos también la línea separadora de abajo si quieres que sea ultra limpio */
+    border-bottom: 1px solid var(--nw-light); 
+  }
+
+  .nw-intro-clean * { box-sizing: border-box; }
+
+  /* Flex Layout */
+  .nw-intro-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 80px;
+  }
+
+  /* Columna Izquierda: Texto */
+  .nw-intro-text {
+    flex: 1;
+    max-width: 600px;
+  }
+
+  /* Eyebrow (Títulos pequeños) */
+  .nw-eyebrow {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: var(--nw-beige);
+    font-weight: 700;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .nw-intro-text h2 {
+    font-family: 'Source Serif Pro', serif;
+    font-size: 2.8rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--nw-blue);
+    margin: 0 0 30px 0;
+  }
+
+  .nw-intro-text p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    color: var(--nw-black);
+    opacity: 0.85;
+  }
+
+  .nw-strong {
+    color: var(--nw-blue);
+    font-weight: 700;
+  }
+
+  /* === LINK PREMIUM (SIN LÍNEA) === */
+  .nw-text-link {
+    display: inline-flex; /* Para alinear la flecha */
+    align-items: center;
+    color: var(--nw-blue);
+    font-weight: 700;
+    text-decoration: none; /* Sin subrayado */
+    border: none; /* Sin borde */
+    transition: opacity 0.3s ease;
+  }
+
+  /* Flecha creada con CSS */
+  .nw-text-link::after {
+    content: '→';
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+    font-family: sans-serif; /* Flecha simple */
+  }
+
+  /* Efecto Hover: La flecha se mueve */
+  .nw-text-link:hover {
+    opacity: 0.8;
+  }
+  .nw-text-link:hover::after {
+    transform: translateX(5px);
+  }
+
+  /* Columna Derecha: Lista de Marcas */
+  .nw-brand-list {
+    flex: 0.8;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-left: 2px solid var(--nw-light);
+    padding-left: 40px;
+  }
+
+  /* Items de Marcas */
+  .nw-brand-item {
+    font-family: 'Source Serif Pro', serif;
+    font-size: 2.2rem;
+    color: var(--nw-beige);
+    margin-bottom: 15px;
+    text-decoration: none;
+    display: block;
+    width: fit-content;
+    transition: all 0.4s ease;
+    position: relative;
+    padding-left: 0;
+  }
+
+  .nw-brand-item:hover {
+    color: var(--nw-blue);
+    transform: translateX(10px);
+  }
+
+  .nw-brand-item::before {
+    content: '—';
+    position: absolute;
+    left: -25px;
+    opacity: 0;
+    color: var(--nw-blue);
+    transition: all 0.4s ease;
+  }
+  
+  .nw-brand-item:hover::before {
+    opacity: 1;
+    left: -20px;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .nw-intro-wrapper {
+      flex-direction: column;
+      gap: 50px;
+    }
+    .nw-intro-text h2 { font-size: 2.2rem; }
+    
+    .nw-brand-list {
+      border-left: none;
+      border-top: 2px solid var(--nw-light);
+      padding-left: 0;
+      padding-top: 30px;
+      width: 100%;
+    }
+    .nw-brand-item { font-size: 1.8rem; }
+  }
+</style>
+<section class="nw-intro-clean">
+<div class="nw-intro-wrapper">
+<div class="nw-intro-text"><span class="nw-eyebrow">Wilkommen bei New Wave.</span>
+<h2>Dein Business. Unsere Textilien.</h2>
+<p>Als ausgewiesener B2B-Partner arbeiten wir <span class="nw-strong">ausschlie&szlig;lich mit gewerblichen Kunden</span>, die Qualit&auml;t, Kontinuit&auml;t und ein starkes Markenumfeld erwarten.</p>
+<p>Jede Kollektion entsteht mit Fokus auf Langlebigkeit und Verantwortung. Unser Service bleibt pr&auml;zise, schnell und pers&ouml;nlich &ndash; eine Zusammenarbeit, die einfach funktioniert.</p>
+<a href="/epiui/CMS/Content/ueber-uns,,129405/?epieditmode=false" class="nw-text-link">Mehr &uuml;ber New Wave erfahren</a></div>
+<div class="nw-brand-list"><span class="nw-eyebrow">Entdecke Unsere Marken</span> <a href="/epiui/CMS/Content/clique,,136401/?epieditmode=false" class="nw-brand-item">Clique</a> <span style="color: rgb(139, 115, 78);"><a href="/epiui/CMS/Content/craft,,128325/?epieditmode=false" class="nw-brand-item">Craft</a></span> <a href="/epiui/CMS/Content/cutterandbuck,,146912/?epieditmode=false" class="nw-brand-item">Cutter &amp; Buck</a> <a href="/epiui/CMS/Content/untagged-movement,,146929/?epieditmode=false" class="nw-brand-item">Untagged Movement</a></div>
+</div>
+</section>
