@@ -1,0 +1,229 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;600;700&display=swap');
+
+  /* =========================================
+     Estilos Generales
+     ========================================= */
+  .nw-catalog-section {
+    --nw-blue: #002b49;
+    --nw-bg: #f3f3f1;
+    --nw-white: #ffffff;
+    --nw-beige: #dbd9cc;
+    
+    background-color: var(--nw-bg);
+    padding: 80px 20px;
+    font-family: 'Futura', 'Century Gothic', sans-serif;
+    box-sizing: border-box;
+  }
+
+  .nw-catalog-section * { box-sizing: border-box; }
+
+  /* Header */
+  .nw-cat-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px auto;
+  }
+
+  .nw-cat-header h2 {
+    font-family: 'Source Serif Pro', serif;
+    font-size: 2.5rem;
+    color: var(--nw-blue);
+    margin-bottom: 15px;
+  }
+
+  .nw-cat-header p {
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.6;
+  }
+
+  /* Grid Container (4 Columnas) */
+  .nw-catalog-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Un poco menos de espacio para que quepan 4 */
+    flex-wrap: wrap; /* Permite que bajen a la siguiente línea en tablet */
+    max-width: 1400px; /* Más ancho para acomodar 4 items */
+    margin: 0 auto;
+  }
+
+  /* Item Individual */
+  .nw-catalog-item {
+    /* Cálculo: (100% - huecos) / 4 */
+    flex: 0 0 calc(25% - 23px); 
+    min-width: 240px; /* No hacerse más pequeño que esto */
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    perspective: 1000px; 
+    margin-bottom: 20px;
+  }
+
+  /* Portada (Cover) */
+  .nw-book-cover {
+ aspect-ratio: 5 / 7; /* Obliga a la caja a tener la proporción exacta de tus imágenes 500x700 */
+    width: 100%;     
+    background-color: var(--nw-white);
+    position: relative;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    overflow: hidden;
+  }
+
+  /* Imagen */
+  .nw-cat-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+  
+  /* Sombra del lomo */
+  .nw-book-cover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 8%, rgba(0,0,0,0) 100%);
+    pointer-events: none;
+  }
+
+  /* Hover Effects */
+  .nw-catalog-item:hover .nw-book-cover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 43, 73, 0.25);
+  }
+  
+  .nw-catalog-item:hover .nw-cat-img {
+    transform: scale(1.05);
+  }
+
+  /* Info Text */
+  .nw-cat-info {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .nw-cat-title {
+    font-family: 'Source Serif Pro', serif;
+    font-size: 1.3rem;
+    color: var(--nw-blue);
+    margin: 0 0 8px 0;
+  }
+
+  .nw-cat-link-text {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--nw-blue);
+    font-weight: 700;
+    border-bottom: 2px solid var(--nw-beige);
+    padding-bottom: 3px;
+    transition: border-color 0.3s ease;
+  }
+
+  .nw-catalog-item:hover .nw-cat-link-text {
+    border-color: var(--nw-blue);
+  }
+
+  /* === CTA BUTTON AREA === */
+  .nw-catalog-cta-wrapper {
+    text-align: center;
+    margin-top: 60px;
+  }
+
+  .nw-catalog-btn {
+    display: inline-block;
+    background-color: var(--nw-blue);
+    color: var(--nw-white) !important;
+    font-family: 'Futura', 'Century Gothic', sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 16px 40px;
+    border-radius: 50px;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    border: 2px solid var(--nw-blue);
+  }
+
+  .nw-catalog-btn:hover {
+    background-color: var(--nw-beige);
+    color: var(--nw-blue) !important;
+    border-color: var(--nw-beige);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  }
+/* Estilo para el botón de "Volver arriba" */
+  .nw-back-top {
+    display: block; /* Para que quede en su propia línea debajo del botón */
+    margin-top: 25px;
+    font-family: 'Futura', 'Century Gothic', sans-serif;
+    font-size: 0.9rem;
+    color: var(--nw-blue); /* #002b49 */
+    text-decoration: none;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+  }
+
+  .nw-back-top:hover {
+    opacity: 1;
+    color: #8b734e; /* Tu color dorado corporativo al pasar el mouse */
+    transform: translateY(-2px);
+  }
+
+  /* Truco para que el scroll sea suave (smooth) en toda la página */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Responsive Logic */
+  @media (max-width: 1100px) {
+    /* Tablet: 2 por fila */
+    .nw-catalog-item {
+      flex: 0 0 calc(50% - 15px);
+    }
+  }
+
+  @media (max-width: 600px) {
+    /* Mobile: 1 por fila */
+    .nw-catalog-item {
+      flex: 0 0 100%;
+      max-width: 320px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+</style>
+<section id="nw-start" class="nw-catalog-section">
+<div class="nw-cat-header">
+<h2>Entdecke unsere Welten</h2>
+<p>Inspiration, Trends und Produktneuheiten. Bl&auml;ttere digital durch unsere aktuellen Kollektionen.</p>
+</div>
+<div class="nw-catalog-grid"><a href="https://viewer.joomag.com/clique-2026-german/0202709001768314809?short&amp;" class="nw-catalog-item">
+<div class="nw-book-cover"><img class="nw-cat-img" src="/epiui/CMS/Content/globalassets/new-wave-germany/seiteninhalte/service/kataloge/500x700_clique_cover.jpg,,143433?epieditmode=false" alt="Cover" width="500" height="700"></div>
+<div class="nw-cat-info">
+<h3 class="nw-cat-title">Clique</h3>
+<span class="nw-cat-link-text">Ansehen</span></div>
+</a><a href="https://viewer.joomag.com/craft-teamwear-2026-ger/0055969001764070153?short&amp;" class="nw-catalog-item">
+<div class="nw-book-cover"><img class="nw-cat-img" src="/epiui/CMS/Content/globalassets/new-wave-germany/seiteninhalte/service/kataloge/cover_craft_teamwear_2025.jpg,,108562?epieditmode=false" alt="Cover" width="500" height="700"></div>
+<div class="nw-cat-info">
+<h3 class="nw-cat-title">Craft Teamwear</h3>
+<span class="nw-cat-link-text">Ansehen</span></div>
+</a><a href="https://viewer.joomag.com/cutterbuck-aw25-de-german-text-with-price/0231666001751277280?short&amp;" class="nw-catalog-item">
+<div class="nw-book-cover"><img class="nw-cat-img" src="/epiui/CMS/Content/globalassets/new-wave-germany/seiteninhalte/service/kataloge/cutterandbuck_cover_2024.jpg,,59541?epieditmode=false" alt="Cover" width="500" height="700"></div>
+<div class="nw-cat-info">
+<h3 class="nw-cat-title">Cutter &amp; Buck</h3>
+<span class="nw-cat-link-text">Ansehen</span></div>
+</a><a href="https://drive.nwg.se/s/sAJc5bJq8gr6A4N?dir=/&amp;editing=false&amp;openfile=true" class="nw-catalog-item">
+<div class="nw-book-cover"><img class="nw-cat-img" src="/epiui/CMS/Content/globalassets/new-wave-germany/seiteninhalte/service/kataloge/500x700_um_cover.jpg,,126951?epieditmode=false" alt="Cover" width="500" height="700"></div>
+<div class="nw-cat-info">
+<h3 class="nw-cat-title">Untagged Movement</h3>
+<span class="nw-cat-link-text">Ansehen</span></div>
+</a></div>
+<div class="nw-catalog-cta-wrapper"><a href="/epiui/CMS/Content/kataloge,,41896/?epieditmode=false">Alle Kataloge entdecken</a> <a href="/epiui/CMS/Content/,,41882/?epieditmode=false" class="nw-back-top"> &uarr; Zur&uuml;ck zur Startseite</a></div>
+</section>
