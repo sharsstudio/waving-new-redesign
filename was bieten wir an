@@ -1,0 +1,185 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;600;700&display=swap');
+
+  /* Estilos Base */
+  .nw-dealer-section {
+    --nw-blue: #002b49;
+    --nw-bg: #f3f3f1;
+    --nw-white: #ffffff;
+    --nw-beige: #dbd9cc;
+    
+    background-color: var(--nw-bg);
+    color: var(--nw-blue);
+    padding: 60px 20px;
+    font-family: 'Futura', 'Century Gothic', sans-serif;
+    box-sizing: border-box;
+  }
+  .nw-dealer-section * { box-sizing: border-box; }
+
+  /* Header */
+  .nw-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+  }
+  .nw-header h2 {
+    font-family: 'Source Serif Pro', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--nw-blue);
+  }
+  .nw-header p {
+    font-size: 1.1rem;
+    color: #000;
+    opacity: 0.85;
+  }
+
+  /* Grid Layout */
+  .nw-features-grid {
+    display: flex;
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+  }
+
+  /* Tarjetas */
+  .nw-card {
+    background: var(--nw-white);
+    flex: 1;
+    min-width: 260px;
+    padding: 35px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 5px solid var(--nw-beige);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Hover Effects Tarjeta */
+  .nw-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 43, 73, 0.15);
+    border-top-color: var(--nw-blue);
+  }
+
+  /* Icon Wrapper */
+  .nw-icon-wrapper {
+    background-color: var(--nw-bg);
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    transition: background-color 0.3s ease;
+  }
+
+  /* IMAGEN ICONO (Base64) */
+  .nw-icon-img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    transition: filter 0.3s ease, transform 0.3s ease;
+  }
+
+  /* Hover Effects Icono */
+  .nw-card:hover .nw-icon-wrapper {
+    background-color: var(--nw-blue);
+  }
+  
+  /* Truco CSS: Invertir color a blanco (Brightness 0 -> Negro, Invert 1 -> Blanco) */
+  .nw-card:hover .nw-icon-img {
+    filter: brightness(0) invert(1);
+    transform: scale(1.1);
+  }
+
+  /* Textos */
+  .nw-card h3 {
+    font-family: 'Source Serif Pro', serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin: 0 0 15px 0;
+    color: var(--nw-blue);
+  }
+  .nw-card p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #000;
+  }
+ .nw-cta-container {
+    text-align: center;
+    margin-top: 60px;
+  }
+
+  .nw-cta-button {
+    display: inline-block;
+    background-color: var(--nw-blue);
+    color: var(--nw-white) !important; /* Importante para sobrescribir estilos de links del tema */
+    font-family: 'Futura', 'Century Gothic', sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 18px 45px;
+    border-radius: 50px; /* Forma de píldora */
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 43, 73, 0.2);
+    border: 2px solid var(--nw-blue); /* Borde invisible para evitar salto al hacer hover */
+  }
+
+  /* Hover Effect del Botón */
+  .nw-cta-button:hover {
+    background-color: var(--nw-beige);
+    color: var(--nw-blue) !important;
+    border-color: var(--nw-beige);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 43, 73, 0.15);
+  }
+
+  /* Mobile */
+  @media (max-width: 900px) {
+    .nw-features-grid {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding: 0 20px 20px 20px;
+    }
+    .nw-card {
+      min-width: 85%;
+      margin-right: 15px;
+      scroll-snap-align: center;
+    }
+  }
+</style>
+<div class="nw-dealer-section">
+<div class="nw-header">
+<h2>Starke Marken &amp; starke Partnerschaft.</h2>
+<p>Wir unterst&uuml;tzen dich mit verl&auml;sslicher Logistik, digitalem Service und einem breiten Sortiment &ndash; damit du dich voll auf dein Business konzentrieren kannst.</p>
+</div>
+<div class="nw-features-grid">
+<div class="nw-card">
+<div class="nw-icon-wrapper"><img class="nw-icon-img" src="/epiui/CMS/Content/contentassets/05710f62a3b240a9b97018f39a9bf9f4/blobid0.svg,,145141?epieditmode=false" alt="Service"></div>
+<h3>Pers&ouml;nlicher Service</h3>
+<span style="color: rgb(0, 0, 0);">Feste Ansprechpartner im Innen- &amp; Au&szlig;endienst unterst&uuml;tzen dich bei Sortiment, Projekten und Fragen.</span></div>
+<div class="nw-card">
+<div class="nw-icon-wrapper"><img class="nw-icon-img" src="/epiui/CMS/Content/contentassets/05710f62a3b240a9b97018f39a9bf9f4/blobid1.svg,,145140?epieditmode=false" alt="Sortiment"></div>
+<h3>Breites Sortiment</h3>
+<p>Von funktioneller Sportswear &uuml;ber Teamsport bis Corporate Wear &ndash; alles aus einer Hand.</p>
+</div>
+<div class="nw-card">
+<div class="nw-icon-wrapper"><img class="nw-icon-img" src="/epiui/CMS/Content/contentassets/05710f62a3b240a9b97018f39a9bf9f4/blobid2.svg,,145142?epieditmode=false" alt="Logistik"></div>
+<h3>Schnelle Lieferung</h3>
+<p>Lokales Lager &amp; klare Prozesse sorgen f&uuml;r kurze Lieferzeiten und hohe Verf&uuml;gbarkeit.</p>
+</div>
+<div class="nw-card">
+<div class="nw-icon-wrapper"><img class="nw-icon-img" src="/epiui/CMS/Content/contentassets/05710f62a3b240a9b97018f39a9bf9f4/blobid3.svg,,145143?epieditmode=false" alt="Digital"></div>
+<h3>Digitale Tools</h3>
+<p>B2B-Portal, Microshops, Produktdaten, Medien-Downloads und mehr &ndash; f&uuml;r maximale Effizienz.</p>
+</div>
+</div>
+<div class="nw-cta-container"><a href="/epiui/CMS/Content/haendler-werden,,127990/?epieditmode=false" class="nw-cta-button">Jetzt H&auml;ndler werden</a></div>
+</div>
