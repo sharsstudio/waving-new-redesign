@@ -68,9 +68,4 @@ Aligned the frontend strictly with the corporate identity using the following pa
 * **Efficiency:** Established a scalable content management workflow connecting CMS and CRM (Lime).
 
 ---
-
-## 📬 Contact
-
-**Sharlyn Granados** *Technical E-Commerce Lead & CMS Specialist* 📍 Munich, Germany  
-📧 [shargranados@icloud.com]
 }
