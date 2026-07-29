@@ -1,0 +1,354 @@
+<style>
+  /* --- Scroll Suave (Smooth Scrolling) --- */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  .mo section {
+    scroll-margin-top: 40px;
+  }
+
+  .mo {
+    /* --- New Wave · Opción C · Alto contraste --- */
+    --navy:    #002b49;   /* azul New Wave · ahora uso puntual */
+    --navy-dk: #001b30;   /* azul profundo · footer */
+    --navy-2:  #0c3b5e;   /* azul medio · hovers puntuales */
+    --gold:    #8b734e;   /* dorado · solo líneas y texto fino */
+    --gold-lt: #b09a72;   /* dorado claro · detalles sobre fondo oscuro */
+    --cream:   #f3f3f1;   /* off-white · fondo principal */
+    --cream-2: #e7e4dc;   /* arena suave */
+    --sand:    #dbd9cc;   /* arena · bloques planos */
+    --ink:     #000000;   /* negro · texto y bloques protagonistas */
+    --ink-2:   #4a4a48;   /* gris cálido · texto secundario */
+    --line:    #d6d3c8;   /* líneas/bordes arena */
+
+    --serif: 'Source Serif Pro', serif;
+    --sans:  'Futura', 'Century Gothic', sans-serif;
+
+    /* Fondo plano: se quitaron los radial-gradient para un look más limpio */
+    background: var(--cream);
+    color: var(--ink);
+    font-family: var(--sans);
+    line-height: 1.6;
+    overflow: hidden;
+  }
+  .mo *, .mo *::before, .mo *::after { box-sizing: border-box; }
+  .mo h1, .mo h2, .mo h3 { font-family: var(--serif); font-weight: 500; margin: 0; }
+  .mo p { margin: 0; }
+
+  /* ---------- Animaciones base ---------- */
+  @keyframes mo-rise   { from { opacity: 0; transform: translateY(34px); } to { opacity: 1; transform: none; } }
+  @keyframes mo-fade   { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes mo-grow   { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+  .mo [data-rise] { opacity: 0; animation: mo-rise .9s cubic-bezier(.2,.7,.2,1) forwards; }
+  .mo [data-d1] { animation-delay: .10s; }
+  .mo [data-d2] { animation-delay: .22s; }
+  .mo [data-d3] { animation-delay: .34s; }
+  .mo [data-d4] { animation-delay: .46s; }
+  .mo [data-d5] { animation-delay: .58s; }
+  .mo [data-d6] { animation-delay: .70s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .mo [data-rise] { animation: none; opacity: 1; }
+  }
+
+  /* ---------- Topbar ---------- */
+  .mo__topbar {
+    position: relative; z-index: 2;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 8px;
+    padding: 11px 48px;
+    background: var(--ink);
+    color: #eceae3;
+    font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+  }
+  .mo__topbar b { color: var(--gold-lt); font-weight: 600; }
+
+  /* ---------- Header ---------- */
+  .mo__header {
+    position: relative; z-index: 2;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 20px;
+    padding: 28px 48px; border-bottom: 1px solid var(--line);
+    background: var(--cream);
+  }
+  .mo__brand-name { font-family: var(--serif); font-size: 28px; font-weight: 600; line-height: 1; color: var(--ink); }
+  .mo__brand-sub  { font-size: 10px; letter-spacing: .45em; color: var(--gold); margin-top: 5px; }
+  .mo__nav { display: flex; flex-wrap: wrap; gap: 26px; font-size: 13px; letter-spacing: .04em; color: var(--ink-2); }
+  .mo__nav a { color: inherit; text-decoration: none; position: relative; padding-bottom: 4px; }
+  .mo__nav a::after {
+    content: ""; position: absolute; left: 0; bottom: 0; height: 1.5px; width: 100%;
+    background: var(--ink); transform: scaleX(0); transform-origin: left;
+    transition: transform .35s cubic-bezier(.2,.7,.2,1);
+  }
+  .mo__nav a:hover { color: var(--ink); }
+  .mo__nav a:hover::after { transform: scaleX(1); }
+
+  .mo__btn {
+    display: inline-block; text-decoration: none; cursor: pointer;
+    font-size: 11.5px; letter-spacing: .12em; text-transform: uppercase;
+    transition: transform .3s, background .3s, color .3s, border-color .3s;
+  }
+  .mo__btn--outline { border: 1px solid var(--ink); color: var(--ink); padding: 11px 22px; background: transparent; }
+  .mo__btn--outline:hover { background: var(--ink); color: var(--cream); transform: translateY(-2px); }
+
+  /* ---------- Hero ---------- */
+  .mo__hero { position: relative; z-index: 1; display: grid; grid-template-columns: 1.05fr .95fr; }
+  .mo__hero-copy { padding: 86px 56px; display: flex; flex-direction: column; justify-content: center; }
+  .mo__eyebrow {
+    display: inline-block; font-size: 12px; letter-spacing: .34em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 22px; padding-left: 56px; position: relative;
+  }
+  .mo__eyebrow::before {
+    content: ""; position: absolute; left: 0; top: 50%; width: 42px; height: 1px;
+    background: var(--gold); transform: scaleX(0); transform-origin: left;
+    animation: mo-grow .8s .5s forwards;
+  }
+  .mo__hero h1 { font-size: clamp(42px, 6vw, 68px); line-height: 1.02; margin-bottom: 26px; color: var(--ink); }
+  /* Acento puntual en oro · sin shimmer animado */
+  .mo__hero h1 em { font-style: italic; color: var(--gold); }
+  .mo__lead { font-size: 16.5px; line-height: 1.8; color: var(--ink-2); max-width: 460px; margin-bottom: 36px; }
+  .mo__cta-row { display: flex; flex-wrap: wrap; gap: 14px; }
+  .mo__btn--primary {
+    color: var(--cream); padding: 16px 34px; border: none;
+    background: var(--ink);
+  }
+  .mo__btn--primary:hover { transform: translateY(-3px); background: var(--navy); }
+  .mo__btn--soft { border: 1px solid var(--line); color: var(--ink); padding: 16px 30px; background: transparent; }
+  .mo__btn--soft:hover { transform: translateY(-3px); border-color: var(--ink); }
+
+  .mo__brandline { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 16px; margin-top: 54px; font-family: var(--serif); font-size: 22px; color: #9a958a; }
+  .mo__brandline span.sep { color: var(--gold); }
+  .mo__brandline b { font-weight: 500; color: var(--ink); transition: color .3s, transform .3s; display: inline-block; }
+  .mo__brandline b:hover { color: var(--gold); transform: translateY(-2px); }
+
+  /* Hero media · color plano arena, sin rayado ni shimmer */
+  .mo__hero-media {
+    position: relative; overflow: hidden; min-height: 600px;
+    background: var(--sand);
+    display: flex; align-items: flex-end; padding: 30px;
+  }
+  .mo__hero-media img {
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;
+  }
+  .mo__media-tag { position: relative; z-index: 2; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: #6b6b66; }
+
+  /* ---------- Intro ---------- */
+  .mo__intro {
+    position: relative; z-index: 1;
+    padding: 140px 56px;
+    background: var(--cream);
+    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  }
+  .mo__intro-inner { max-width: 780px; margin: 0 auto; text-align: center; }
+  .mo__rule { width: 52px; height: 2px; background: var(--gold); margin: 0 auto 26px; border-radius: 2px; }
+  .mo__intro h2 { font-size: clamp(28px, 4vw, 36px); margin-bottom: 22px; color: var(--ink); }
+  .mo__intro p { font-size: 17px; line-height: 1.9; color: var(--ink-2); }
+
+  /* ---------- Section head ---------- */
+  .mo__section { position: relative; z-index: 1; padding: 84px 56px; }
+  .mo__section-head { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 12px; margin-bottom: 42px; }
+  .mo__section-head h2 { font-size: clamp(28px, 4vw, 38px); color: var(--ink); }
+  .mo__section-tag { font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); }
+
+  /* ---------- Brand cards ---------- */
+  .mo__brands { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .mo__card {
+    position: relative; background: #fff; border: 1px solid var(--line);
+    overflow: hidden; transition: transform .4s cubic-bezier(.2,.7,.2,1), box-shadow .4s;
+  }
+  .mo__card:hover { transform: translateY(-8px); box-shadow: 0 26px 46px -22px rgba(0,0,0,.35); }
+  .mo__card-media {
+    position: relative; height: 234px; overflow: hidden;
+    background: var(--sand);
+  }
+  .mo__card-media img {
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;
+    transition: transform .6s ease;
+  }
+  .mo__card:hover .mo__card-media img { transform: scale(1.05); }
+  .mo__card-media::after {
+    content: ""; position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(180deg, transparent 45%, rgba(0,0,0,.5));
+    opacity: 0; transition: opacity .4s;
+  }
+  .mo__card:hover .mo__card-media::after { opacity: 1; }
+  .mo__card-body { padding: 26px 26px 30px; position: relative; z-index: 2; background: #fff; }
+  .mo__card-body h3 { font-size: 26px; margin-bottom: 8px; color: var(--ink); transition: color .3s; }
+  .mo__card:hover .mo__card-body h3 { color: var(--gold); }
+  .mo__card-body p { font-size: 14px; line-height: 1.65; color: var(--ink-2); margin-bottom: 16px; }
+  .mo__card-link {
+    font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--gold);
+    text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+  }
+  .mo__card-link span { transition: transform .35s; }
+  .mo__card:hover .mo__card-link span { transform: translateX(6px); }
+
+  /* ---------- Sortiment tiles ---------- */
+  .mo__range { position: relative; z-index: 1; padding: 84px 56px; background: var(--sand); }
+  .mo__range h2 { font-size: clamp(28px, 4vw, 38px); margin-bottom: 40px; color: var(--ink); }
+  .mo__range-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .mo__tile {
+    position: relative; overflow: hidden;
+    background: var(--cream); border: 1px solid var(--line); padding: 24px; height: 132px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    transition: transform .35s, box-shadow .35s, color .35s;
+  }
+  .mo__tile::before {
+    content: ""; position: absolute; inset: 0; z-index: 0;
+    background: var(--ink);
+    transform: translateY(101%); transition: transform .4s cubic-bezier(.2,.7,.2,1);
+  }
+  .mo__tile:hover { transform: translateY(-5px); box-shadow: 0 18px 32px -18px rgba(0,0,0,.5); color: var(--cream); }
+  .mo__tile:hover::before { transform: translateY(0); }
+  .mo__tile > * { position: relative; z-index: 1; }
+  .mo__tile-title { font-family: var(--serif); font-size: 21px; color: var(--ink); transition: color .35s; }
+  .mo__tile:hover .mo__tile-title { color: var(--cream); }
+  .mo__tile-sub { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #9a958a; transition: color .35s; }
+  .mo__tile:hover .mo__tile-sub { color: var(--gold-lt); }
+
+  /* ---------- Hours ---------- */
+  .mo__hours { position: relative; z-index: 1; display: grid; grid-template-columns: .92fr 1.08fr; }
+  .mo__hours-copy {
+    position: relative; overflow: hidden; padding: 84px 56px;
+    display: flex; flex-direction: column; justify-content: center;
+    background: var(--ink);
+    color: #e7e4dc;
+  }
+  .mo__hours-copy h2 { position: relative; font-size: clamp(28px, 4vw, 38px); margin-bottom: 24px; color: var(--cream); }
+  .mo__hours-note { position: relative; font-size: 14px; line-height: 1.7; color: #b6b3aa; margin-bottom: 18px; }
+  .mo__hours-row {
+    position: relative; display: flex; justify-content: space-between; padding: 18px 0;
+    border-top: 1px solid rgba(176,154,114,.35); font-size: 16px;
+  }
+  .mo__hours-row:last-of-type { border-bottom: 1px solid rgba(176,154,114,.35); }
+  .mo__hours-row span:last-child { color: var(--gold-lt); font-weight: 500; }
+  .mo__hours-addr { position: relative; font-size: 14px; line-height: 1.7; color: #9a968d; margin-top: 26px; }
+  .mo__hours-cta {
+    position: relative; align-self: flex-start; margin-top: 30px;
+    border: 1px solid var(--gold-lt); color: var(--gold-lt); padding: 13px 26px;
+    font-size: 12px; letter-spacing: .12em; text-transform: uppercase; text-decoration: none;
+    transition: background .3s, color .3s, transform .3s;
+  }
+  .mo__hours-cta:hover { background: var(--gold-lt); color: var(--ink); transform: translateY(-2px); }
+  .mo__hours-media {
+    position: relative; overflow: hidden; min-height: 440px;
+    background: var(--sand);
+    display: flex; align-items: flex-end; padding: 30px;
+  }
+  .mo__hours-media img {
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;
+  }
+  .mo__hours-media .mo__media-tag { z-index: 2; }
+
+  /* ---------- Footer ---------- */
+  .mo__footer {
+    position: relative; z-index: 1;
+    background: var(--ink);
+    color: #9a968d; padding: 50px 56px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
+    font-size: 12.5px; letter-spacing: .05em;
+  }
+  .mo__footer-name { font-family: var(--serif); font-size: 22px; color: var(--cream); }
+  .mo__footer-links { display: flex; flex-wrap: wrap; gap: 28px; }
+  .mo__footer-links a { color: inherit; text-decoration: none; transition: color .3s; }
+  .mo__footer-links a:hover { color: var(--gold-lt); }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .mo__hero, .mo__hours { grid-template-columns: 1fr; }
+    .mo__brands { grid-template-columns: repeat(2, 1fr); }
+    .mo__range-grid { grid-template-columns: repeat(2, 1fr); }
+    .mo__hero-copy, .mo__hours-copy { padding: 64px 40px; }
+  }
+  @media (max-width: 560px) {
+    .mo__topbar, .mo__header, .mo__hero-copy, .mo__intro, .mo__section,
+    .mo__range, .mo__hours-copy, .mo__footer { padding-left: 24px; padding-right: 24px; }
+    .mo__brands, .mo__range-grid { grid-template-columns: 1fr; }
+  }
+</style>
+<div class="mo"><header class="mo__header">
+<div data-rise="" data-d1="">
+<div class="mo__brand-name"><span style="font-family: 'Craft Sans';">Outlet &amp;</span></div>
+<div class="mo__brand-name"><span style="font-family: 'Craft Sans';">Concept Store</span></div>
+<div class="mo__brand-sub">GEISELWIND</div>
+</div>
+<nav class="mo__nav" data-rise="" data-d2=""><a href="#sortiment">Sortiment</a> <a href="#marken">Marken</a> <a href="#uber-uns">&Uuml;ber&nbsp;uns</a> <a href="#oeffnungszeiten">&Ouml;ffnungszeiten</a> <a href="#anfahrt">Anfahrt</a></nav><a href="#anfahrt" class="mo__btn mo__btn--outline" data-rise="" data-d3="">In Maps anzeigen</a></header>
+<section class="mo__hero">
+<div class="mo__hero-copy"><span class="mo__eyebrow" data-rise="" data-d1="">Markenmode &middot; stark reduziert</span>
+<h1 data-rise="" data-d2="">Hochwertige Textilien<br>f&uuml;r <em>jeden Anlass.</em></h1>
+<p class="mo__lead" data-rise="" data-d3="">Craft, Clique und Cutter&nbsp;&amp;&nbsp;Buck &mdash; Funktion und Stil zu Outlet-Preisen, mitten in Geiselwind. Vom Business-Hemd bis zur funktionellen Sportbekleidung.</p>
+<p class="mo__lead" data-rise="" data-d3="">&nbsp;</p>
+<div class="mo__cta-row" data-rise="" data-d4=""><a href="#sortiment" class="mo__btn mo__btn--primary">Sortiment entdecken</a> <a href="#oeffnungszeiten" class="mo__btn mo__btn--soft">&Ouml;ffnungszeiten</a></div>
+<div class="mo__brandline" data-rise="" data-d5=""><strong>Craft</strong><span class="sep"><span> | </span></span><strong>Clique</strong><span class="sep"><span> | </span></span><strong>Cutter&nbsp;&amp;&nbsp;Buck</strong><span class="sep"><span> | </span></span><strong>Untagged Movement</strong></div>
+</div>
+<div class="mo__hero-media" data-rise="" data-d3=""><img src="/epiui/CMS/Content/globalassets/new-wave-germany/ab-2026/seiteninhalte/craft_running_hypervent_ss26_00050.jpg,,184585?epieditmode=false" alt="Hero Banner" width="1920" height="2879"></div>
+</section>
+<section id="uber-uns" class="mo__intro">
+<div class="mo__intro-inner">
+<h2 data-rise="" data-d2="">Willkommen in unserem Marken Outlet</h2>
+<p data-rise="" data-d3="">Hier findest Du f&uuml;r jeden Bereich das passende Outfit &mdash; ob Freizeit-, Business- oder Arbeitsbekleidung, funktionelle Sportbekleidung, Footwear, Golf oder Teamwear. Von der Funktionsunterw&auml;sche &uuml;ber Schuhe, Shirts &amp; Hoodies bis zu Hosen, Hemden, Blusen und Jacken. Alles zu stark reduzierten Preisen. Wir freuen uns auf Deinen Besuch.</p>
+</div>
+</section>
+<section id="marken" class="mo__section">
+<div class="mo__section-head">
+<h2 data-rise="" data-d1="">Unsere Marken</h2>
+<span class="mo__section-tag" data-rise="" data-d2="">Vier H&auml;user &middot; ein Anspruch</span></div>
+<div class="mo__brands">
+<div class="mo__card" data-rise="" data-d2="">
+<div class="mo__card-media"><img src="https://via.placeholder.com/400x300/dbd9cc/8b734e?text=Craft" alt="Craft"></div>
+<div class="mo__card-body">
+<h3>Craft</h3>
+<p>Funktionelle Sportbekleidung &mdash; Laufen, Radsport, Teamwear.</p>
+<a href="#" class="mo__card-link">Entdecken <span>&rarr;</span></a></div>
+</div>
+<div class="mo__card" data-rise="" data-d3="">
+<div class="mo__card-media"><img src="https://via.placeholder.com/400x300/dbd9cc/8b734e?text=Clique" alt="Clique"></div>
+<div class="mo__card-body">
+<h3>Clique</h3>
+<p>Vielseitige Promotion- und Businessbekleidung mit klarer Linie.</p>
+<a href="#" class="mo__card-link">Entdecken <span>&rarr;</span></a></div>
+</div>
+<div class="mo__card" data-rise="" data-d4="">
+<div class="mo__card-media"><img src="https://via.placeholder.com/400x300/dbd9cc/8b734e?text=Cutter" alt="Cutter &amp; Buck"></div>
+<div class="mo__card-body">
+<h3>Cutter&nbsp;&amp;&nbsp;Buck</h3>
+<p>Premium Golf &amp; Lifestyle &mdash; zeitlose Eleganz aus Seattle.</p>
+<a href="#" class="mo__card-link">Entdecken <span>&rarr;</span></a></div>
+</div>
+<div class="mo__card" data-rise="" data-d5="">
+<div class="mo__card-media"><img src="https://via.placeholder.com/400x300/dbd9cc/8b734e?text=Untagged" alt="Untagged Movement"></div>
+<div class="mo__card-body">
+<h3>Untagged Movement</h3>
+<p>Moderne Athleisure- und Lifestyle-Mode f&uuml;r den bewegten Alltag.</p>
+<a href="#" class="mo__card-link">Entdecken <span>&rarr;</span></a></div>
+</div>
+</div>
+</section>
+<section id="sortiment" class="mo__range">
+<h2 data-rise="" data-d1="">Sortiment</h2>
+<div class="mo__range-grid">
+<div class="mo__tile" data-rise="" data-d1=""><span class="mo__tile-title">Freizeit</span><span class="mo__tile-sub">Shirts &middot; Hoodies</span></div>
+<div class="mo__tile" data-rise="" data-d2=""><span class="mo__tile-title">Business &amp; Arbeit</span><span class="mo__tile-sub">Hemden &middot; Blusen</span></div>
+<div class="mo__tile" data-rise="" data-d3=""><span class="mo__tile-title">Sport</span><span class="mo__tile-sub">Funktion &middot; Lauf</span></div>
+<div class="mo__tile" data-rise="" data-d4=""><span class="mo__tile-title">Footwear</span><span class="mo__tile-sub">Schuhe</span></div>
+<div class="mo__tile" data-rise="" data-d3=""><span class="mo__tile-title">Golf</span><span class="mo__tile-sub">Polos &middot; Hosen</span></div>
+<div class="mo__tile" data-rise="" data-d4=""><span class="mo__tile-title">Teamwear</span><span class="mo__tile-sub">Vereine &middot; Clubs</span></div>
+<div class="mo__tile" data-rise="" data-d5=""><span class="mo__tile-title">Funktionsw&auml;sche</span><span class="mo__tile-sub">Baselayer</span></div>
+<div class="mo__tile" data-rise="" data-d6=""><span class="mo__tile-title">Accessoires</span><span class="mo__tile-sub">Caps &middot; Taschen</span></div>
+</div>
+</section>
+<section id="oeffnungszeiten" class="mo__hours">
+<div class="mo__hours-copy">
+<h2 data-rise="" data-d1="">&Ouml;ffnungszeiten</h2>
+<p class="mo__hours-note" data-rise="" data-d2="">Geplante, offizielle &Ouml;ffnungszeiten. Bitte pr&uuml;fe vor Deinem Besuch kurz bei Google Maps &mdash; dort sind die Zeiten stets tagesaktuell.</p>
+<p class="mo__hours-note" data-rise="" data-d2="">&nbsp;</p>
+<div class="mo__hours-row" data-rise="" data-d3=""><span>Donnerstag &amp; Freitag</span><span>10:00 &ndash; 18:00 Uhr</span></div>
+<div class="mo__hours-row" data-rise="" data-d4=""><span>Samstag</span><span>10:00 &ndash; 15:00 Uhr</span></div>
+<p class="mo__hours-addr" data-rise="" data-d5="">&nbsp;</p>
+<p class="mo__hours-addr" data-rise="" data-d5="">96160 Geiselwind &middot; Direkt an der A3, Anschlussstelle Geiselwind. Kostenlose Parkpl&auml;tze vor dem Haus.</p>
+<a href="#" class="mo__hours-cta" data-rise="" data-d6="">In Maps anzeigen</a></div>
+<div id="anfahrt" class="mo__hours-media"><img src="https://via.placeholder.com/800x600/dbd9cc/000000?text=Mapa+Google" alt="Standort"> <span class="mo__media-tag">Karte &middot; Standort &amp; Anfahrt</span></div>
+</section>
+</div>
