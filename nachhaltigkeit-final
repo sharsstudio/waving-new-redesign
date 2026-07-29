@@ -1,0 +1,770 @@
+<style>
+.nw-sustain-page {
+    /* Corporate Colors */
+    --nw-blue:       #002b49;
+    --nw-gold:       #8b734e;
+    --nw-beige:      #dbd9cc;
+    --nw-light-bg:   #f3f3f1;
+    --nw-black:      #000000;
+    --nw-white:      #ffffff;
+    
+    /* Additional Tints */
+    --nw-green:      #6d825a;
+    --nw-green-lt:   #a8bc97;
+    --nw-text:       #2a2a2a;
+    --nw-text-muted: #555550;
+
+    /* Corporate Fonts */
+    --font-serif: 'Source Serif Pro', serif;
+    --font-sans: 'Futura', 'Century Gothic', sans-serif;
+
+    font-family: var(--font-sans);
+    color: var(--nw-text);
+    background-color: var(--nw-white);
+    overflow-x: hidden;
+  }
+  .nw-sustain-page * { box-sizing: border-box; }
+
+  /* =============================================
+     KEYFRAME ANIMATIONS
+  ============================================= */
+  @keyframes nw-fadeup {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes nw-fiber-scroll {
+    0%, 100% { background-position: 0% 50%; }
+    50%      { background-position: 100% 50%; }
+  }
+
+  @keyframes nw-drift {
+    0%, 100% { transform: translate(0, 0); }
+    50%      { transform: translate(4px, -3px); }
+  }
+
+  @keyframes nw-breathe {
+    0%, 100% { transform: scale(1) rotate(45deg); }
+    50%      { transform: scale(1.04) rotate(45deg); }
+  }
+
+  /* =============================================
+     TYPOGRAPHY HELPERS
+  ============================================= */
+  .nw-eyebrow {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--nw-gold);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 14px;
+  }
+  .nw-h1 {
+    font-family: var(--font-serif);
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    color: var(--nw-blue);
+    font-weight: 700;
+    line-height: 1.05;
+    margin: 0 0 24px 0;
+  }
+  .nw-h2 {
+    font-family: var(--font-serif);
+    font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+    color: var(--nw-blue);
+    font-weight: 700;
+    line-height: 1.15;
+    margin: 0 0 20px 0;
+  }
+  .nw-h3 {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    color: var(--nw-blue);
+    font-weight: 600;
+    margin: 0 0 12px 0;
+  }
+  .nw-text {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--nw-text);
+    margin-bottom: 18px;
+  }
+  .nw-text-sm {
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: var(--nw-text-muted);
+  }
+
+  /* =============================================
+     HERO SECTION
+  ============================================= */
+  .nw-hero {
+    position: relative;
+    min-height: 65vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: var(--nw-blue);
+  }
+
+  .nw-hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 20% 80%, rgba(109,130,90,0.35) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 80% at 85% 20%, rgba(139,115,78,0.2)  0%, transparent 55%),
+      radial-gradient(ellipse 100% 50% at 50% 50%, rgba(0,43,73,0.9)    0%, #001d33 100%);
+    background-size: 200% 200%;
+    animation: nw-fiber-scroll 20s ease-in-out infinite;
+    will-change: background-position;
+  }
+
+  .nw-hero-threads {
+    position: absolute;
+    inset: 0;
+    opacity: 0.05;
+    background-image:
+      repeating-linear-gradient(135deg, var(--nw-green-lt) 0px, var(--nw-green-lt) 1px, transparent 1px, transparent 18px),
+      repeating-linear-gradient(45deg, var(--nw-beige) 0px, var(--nw-beige) 1px, transparent 1px, transparent 26px);
+    animation: nw-drift 25s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  .nw-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 820px;
+    padding: 80px 24px;
+    animation: nw-fadeup 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .nw-hero-eyebrow {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: var(--nw-green-lt);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .nw-hero-title {
+    font-family: var(--font-serif);
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    color: var(--nw-white);
+    font-weight: 700;
+    line-height: 1.0;
+    margin: 0 0 24px 0;
+    letter-spacing: -0.02em;
+  }
+
+  .nw-hero-title em {
+    font-style: italic;
+    color: var(--nw-green-lt);
+  }
+
+  .nw-hero-sub {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: rgba(219,217,204,0.85);
+    max-width: 600px;
+    margin: 0 auto 36px auto;
+  }
+
+  /* =============================================
+     STRATEGY PILLARS
+  ============================================= */
+  .nw-section-strategy {
+    padding: 90px 0 80px;
+    background: var(--nw-white);
+  }
+
+  .nw-header-center {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 56px;
+    padding: 0 20px;
+  }
+
+  .nw-slider-track {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 10px 5vw 40px;
+    margin: 0 auto;
+    width: fit-content;
+    max-width: 100%;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-color: var(--nw-green) var(--nw-light-bg);
+    scrollbar-width: thin;
+  }
+
+  .nw-slider-card {
+    flex: 0 0 300px;
+    scroll-snap-align: start;
+    background: var(--nw-light-bg);
+    padding: 36px 28px;
+    border-radius: 16px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+    border: 1px solid transparent;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .nw-slider-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 0;
+    background: linear-gradient(90deg, var(--nw-green), var(--nw-gold));
+    transition: width 0.3s ease;
+    border-radius: 0 0 16px 16px;
+  }
+
+  .nw-slider-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0,43,73,0.08);
+    background: var(--nw-white);
+    border-color: rgba(109,130,90,0.2);
+  }
+
+  .nw-slider-card:hover::after { width: 100%; }
+
+  .nw-card-icon {
+    width: 52px;
+    height: 52px;
+    background: linear-gradient(135deg, rgba(109,130,90,0.15), rgba(139,115,78,0.1));
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 22px;
+    transition: background 0.25s ease;
+  }
+
+  .nw-slider-card:hover .nw-card-icon { background: var(--nw-green); }
+
+  .nw-icon-img {
+    width: 24px;
+    height: 24px;
+    display: block;
+    object-fit: contain;
+    transition: filter 0.25s ease;
+  }
+
+  .nw-slider-card:hover .nw-icon-img { filter: brightness(0) invert(1); }
+  
+  .nw-card-num {
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--nw-gold);
+    margin-bottom: 10px;
+  }
+
+  /* =============================================
+     SPUN DYED
+  ============================================= */
+  .nw-section-spundyed {
+    position: relative;
+    background: var(--nw-blue);
+    padding: 100px 20px;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .nw-spundyed-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .nw-spundyed-eyebrow {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: var(--nw-beige);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 16px;
+    opacity: 0.7;
+  }
+
+  .nw-spundyed-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    max-width: 900px;
+    margin: 56px auto 0;
+    background: rgba(255,255,255,0.06);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .nw-stat-item {
+    padding: 44px 20px;
+    transition: background 0.25s ease;
+    position: relative;
+  }
+
+  .nw-stat-item + .nw-stat-item::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 20%; bottom: 20%;
+    width: 1px;
+    background: rgba(219,217,204,0.12);
+  }
+
+  .nw-stat-item:hover { background: rgba(109,130,90,0.12); }
+
+  .nw-stat-num {
+    font-size: clamp(2.4rem, 4vw, 3.4rem);
+    font-family: var(--font-serif);
+    color: var(--nw-green-lt);
+    margin: 0 0 8px;
+    font-weight: 700;
+    display: block;
+    line-height: 1;
+  }
+
+  .nw-spundyed-note {
+    max-width: 680px;
+    margin: 50px auto 0;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: rgba(219,217,204,0.75);
+    background: rgba(255,255,255,0.04);
+    padding: 24px 32px;
+    border-radius: 12px;
+    border-left: 3px solid var(--nw-green);
+    text-align: left;
+  }
+
+  /* =============================================
+     REUSE & SPLIT
+  ============================================= */
+  .nw-section-split {
+    background: var(--nw-light-bg);
+    padding: 96px 20px;
+  }
+
+  .nw-split-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+
+  .nw-split-img-wrap {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 24px 56px rgba(0, 43, 73, 0.15);
+    width: 100%;            
+    max-width: 450px;  
+    margin: 0 auto;        
+    aspect-ratio: 2 / 3; 
+  }
+
+  .nw-split-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;     
+    transition: transform 0.5s ease;
+  }
+
+  .nw-split-img-wrap:hover img { transform: scale(1.03); }
+
+  .nw-split-img-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,43,73,0.4) 0%, transparent 55%);
+    pointer-events: none;
+  }
+
+  .nw-split-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .nw-callout {
+    background: var(--nw-white);
+    border-radius: 14px;
+    padding: 20px 22px;
+    margin: 20px 0 26px;
+    border-left: 4px solid var(--nw-green);
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    box-shadow: 0 4px 16px rgba(0,43,73,0.05);
+  }
+
+  .nw-callout-icon {
+    font-size: 1.4rem;
+    line-height: 1;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .nw-callout strong {
+    display: block;
+    color: var(--nw-blue);
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    margin-bottom: 4px;
+  }
+
+  /* =============================================
+     MATERIALS ICONS ROW
+  ============================================= */
+  .nw-section-materials {
+    background: var(--nw-blue);
+    padding: 72px 20px;
+  }
+
+  .nw-materials-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .nw-cert-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 44px;
+  }
+
+  .nw-cert-pill {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(219,217,204,0.15);
+    color: var(--nw-beige);
+    padding: 14px 24px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: all 0.25s ease;
+    cursor: default;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nw-cert-pill:hover {
+    background: rgba(109,130,90,0.2);
+    border-color: var(--nw-green);
+    color: var(--nw-white);
+    transform: translateY(-2px);
+  }
+
+  /* =============================================
+     CSR
+  ============================================= */
+  .nw-section-csr {
+    background: var(--nw-beige);
+    padding: 100px 20px;
+    position: relative;
+  }
+
+  .nw-csr-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .nw-csr-quote {
+    font-family: var(--font-serif);
+    font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+    line-height: 1.4;
+    color: var(--nw-blue);
+    font-style: italic;
+    position: relative;
+    padding-left: 24px;
+    margin: 0;
+  }
+
+  .nw-csr-quote::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 4px; bottom: 4px;
+    width: 4px;
+    background: linear-gradient(to bottom, var(--nw-green), var(--nw-gold));
+    border-radius: 2px;
+  }
+
+  .nw-csr-box {
+    background: var(--nw-white);
+    padding: 44px 40px;
+    border-radius: 16px;
+    box-shadow: 0 16px 48px rgba(0,43,73,0.08);
+  }
+
+  .nw-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: var(--nw-blue) !important;
+    color: var(--nw-white) !important;       
+    padding: 14px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    transition: all 0.25s ease;
+    margin-top: 20px;
+    border: 2px solid var(--nw-blue) !important;
+  }
+
+  .nw-btn-primary:hover {
+    background-color: var(--nw-gold) !important;
+    border-color: var(--nw-gold) !important;
+    color: var(--nw-white) !important;
+  }
+
+  /* =============================================
+     GUARANTEE
+  ============================================= */
+  .nw-section-guarantee {
+    background: var(--nw-light-bg);
+    padding: 100px 20px;
+  }
+
+  .nw-guarantee-wrap {
+    max-width: 960px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .nw-guarantee-badge {
+    background: var(--nw-blue);
+    color: var(--nw-white);
+    padding: 48px 36px;
+    border-radius: 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .nw-badge-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .nw-badge-title {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--nw-green-lt);
+    margin: 0 0 8px;
+  }
+
+  .nw-badge-sub {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: rgba(219,217,204,0.6);
+  }
+
+  .nw-guarantee-content { padding-top: 8px; }
+
+  .nw-highlight-box {
+    background: var(--nw-white);
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin: 24px 0;
+    position: relative;
+    border-top: 3px solid var(--nw-green);
+    box-shadow: 0 4px 20px rgba(0,43,73,0.05);
+  }
+
+  .nw-btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--nw-blue);
+    border: 2px solid var(--nw-blue);
+    padding: 12px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.25s ease;
+    margin-top: 20px;
+    font-size: 0.88rem;
+    letter-spacing: 0.5px;
+  }
+
+  .nw-btn-outline:hover {
+    background: var(--nw-blue);
+    color: var(--nw-white);
+  }
+
+  /* =============================================
+     RESPONSIVE
+  ============================================= */
+  @media (max-width: 960px) {
+    .nw-split-inner { grid-template-columns: 1fr; gap: 36px; }
+    .nw-split-img-wrap { max-width: 100%; height: auto; }
+    .nw-section-split { padding: 64px 20px; }
+    .nw-spundyed-grid { grid-template-columns: repeat(2, 1fr); }
+    .nw-csr-inner { grid-template-columns: 1fr; gap: 32px; }
+    .nw-guarantee-wrap { grid-template-columns: 1fr; }
+    .nw-guarantee-badge { max-width: 280px; margin: 0 auto; }
+  }
+
+  @media (max-width: 600px) {
+    .nw-hero-title { font-size: 2.6rem; }
+    .nw-spundyed-grid { grid-template-columns: repeat(2, 1fr); }
+    .nw-stat-item { padding: 28px 10px; }
+    .nw-split-img-wrap { height: 260px; }
+    .nw-section-split { padding: 48px 16px; }
+    .nw-csr-box { padding: 28px 20px; }
+  }
+</style>
+<div class="nw-sustain-page">
+<section class="nw-hero">
+<div class="nw-hero-content"><span class="nw-hero-eyebrow">New Wave GmbH &middot; Nachhaltigkeit</span>
+<h1 class="nw-hero-title"><span style="color: rgb(255, 255, 255);">Mode, die</span><br><em>bleibt.</em></h1>
+<p class="nw-hero-sub">Wir glauben, dass verantwortungsvolles Handeln die Grundlage f&uuml;r dauerhaften Wert ist. F&uuml;r Mensch, Material und Markt.</p>
+</div>
+</section>
+<section class="nw-section-strategy">
+<div class="nw-header-center"><span class="nw-eyebrow">Unsere Vision</span>
+<h2 class="nw-h2">Nachhaltiges Wachstum als Prinzip.</h2>
+<p class="nw-text">Die New Wave Group integriert Nachhaltigkeit in den Kern des t&auml;glichen Gesch&auml;ftsbetriebs &mdash; finanziell rentabel, sozial verantwortungsvoll, &ouml;kologisch zukunftsf&auml;hig.</p>
+</div>
+<div class="nw-slider-track">
+<div class="nw-slider-card">
+<div class="nw-card-icon"><img class="nw-icon-img" src="/epiui/CMS/Content/contentassets/7b11e34443594325ab55ae601b557bb5/blobid9.svg,,144970?epieditmode=false" alt="Globaler Beitrag" width="24" height="24"></div>
+<div class="nw-card-num">01</div>
+<h3 class="nw-h3">Globaler Beitrag</h3>
+<p class="nw-text" style="font-size: 0.95rem; flex: 1;">Maximierung unseres Beitrags zu den weltweit vereinbarten Zielen f&uuml;r eine nachhaltige Entwicklung.</p>
+</div>
+<div class="nw-slider-card">
+<div class="nw-card-icon"><img class="nw-icon-img" src="/epiui/CMS/Content/contentassets/7b11e34443594325ab55ae601b557bb5/blobid10.svg,,144971?epieditmode=false" alt="Langfristiger Wert" width="24" height="24"></div>
+<div class="nw-card-num">02</div>
+<h3 class="nw-h3">Langfristiger Wert</h3>
+<p class="nw-text" style="font-size: 0.95rem; flex: 1;">Schaffung von echtem, dauerhaftem Wert f&uuml;r das Unternehmen, seine Partner und die n&auml;chste Generation.</p>
+</div>
+<div class="nw-slider-card">
+<div class="nw-card-icon"><img class="nw-icon-img" src="/epiui/CMS/Content/contentassets/7b11e34443594325ab55ae601b557bb5/blobid11.svg,,144972?epieditmode=false" alt="Anspruchsgruppen" width="24" height="24"></div>
+<div class="nw-card-num">03</div>
+<h3 class="nw-h3">Anspruchsgruppen</h3>
+<p class="nw-text" style="font-size: 0.95rem; flex: 1;">Einbeziehung der Erwartungen unserer Kunden, Mitarbeiter und Partner in jede Entscheidung.</p>
+</div>
+<div class="nw-slider-card">
+<div class="nw-card-icon"><img class="nw-icon-img" src="/epiui/CMS/Content/contentassets/7b11e34443594325ab55ae601b557bb5/blobid12.svg,,144973?epieditmode=false" alt="T&auml;glicher Betrieb" width="24" height="24"></div>
+<div class="nw-card-num">04</div>
+<h3 class="nw-h3">T&auml;glicher Betrieb</h3>
+<p class="nw-text" style="font-size: 0.95rem; flex: 1;">Verbesserung der Arbeitsbedingungen und Reduktion von Treibhausgasemissionen entlang der gesamten Produktionskette.</p>
+</div>
+<div class="nw-slider-card">
+<div class="nw-card-icon"><img class="nw-icon-img" src="/epiui/CMS/Content/contentassets/7b11e34443594325ab55ae601b557bb5/blobid13.svg,,144974?epieditmode=false" alt="Volle Transparenz" width="24" height="24"></div>
+<div class="nw-card-num">05</div>
+<h3 class="nw-h3">Volle Transparenz</h3>
+<p class="nw-text" style="font-size: 0.95rem; flex: 1;">Eigene Einkaufsb&uuml;ros vor Ort &mdash; kein Mittelmann. Wir steuern Qualit&auml;t, Preise und Standards direkt.</p>
+</div>
+</div>
+</section>
+<section class="nw-section-spundyed">
+<div class="nw-spundyed-inner"><span class="nw-spundyed-eyebrow">Innovative F&auml;rbung</span>
+<h2 class="nw-h2" style="color: var(--nw-white);">SPUN DYED:<br>Die Revolution der Farbe.</h2>
+<p class="nw-text" style="color: rgba(219,217,204,0.8); max-width: 680px; margin: 0 auto;">"Spinnd&uuml;senf&auml;rbung" &mdash; Farbpigmente werden der Faser bereits beim Spinnen zugef&uuml;gt. Das Ergebnis: farbechte Textilien mit einem Bruchteil des &ouml;kologischen Aufwands konventioneller Verfahren.</p>
+<div class="nw-spundyed-grid">
+<div class="nw-stat-item"><span class="nw-stat-num">&ndash;75%</span>
+<div class="nw-stat-desc"><span style="color: var(--nw-white);">Wasserverbrauch</span></div>
+</div>
+<div class="nw-stat-item"><span class="nw-stat-num">&ndash;90%</span>
+<div class="nw-stat-desc"><span style="color: var(--nw-white);">Chemikalien</span></div>
+</div>
+<div class="nw-stat-item"><span class="nw-stat-num">&ndash;25%</span>
+<div class="nw-stat-desc"><span style="color: var(--nw-white);">Energiebedarf</span></div>
+</div>
+<div class="nw-stat-item"><span class="nw-stat-num">&ndash;30%</span>
+<div class="nw-stat-desc"><span style="color: var(--nw-white);">CO₂-Emissionen</span></div>
+</div>
+</div>
+<div class="nw-spundyed-note"><strong>Praxisbeispiel:</strong> Das <em>CLIQUE Basic Active-T</em> besteht zu 100 % aus SPUN DYED Polyesterfasern. Die Pigmente durchziehen die Faser bis in den Kern &mdash; das garantiert extreme Farbechtheit, ideal f&uuml;r UV-belastete Outdooraktivit&auml;ten.</div>
+</div>
+</section>
+<section class="nw-section-split">
+<div class="nw-split-inner">
+<div class="nw-split-img-wrap"><img src="/epiui/CMS/Content/contentassets/27dcf2ebd0d24ea1a675a9a027ce1dc4/craft_trainingwear_collective_essence_aw26_00001-1.jpg,,183875?epieditmode=false" alt="Sportliche Bekleidung der Marke Craft Sportswear" width="403" height="605" loading="lazy"></div>
+<div class="nw-split-text"><span class="nw-eyebrow" style="color: var(--nw-gold);">Vom m&uuml;ll zum t-shirt</span>
+<h2 class="nw-h2">Kreislaufwirtschaft</h2>
+<p class="nw-text">F&uuml;nf Plastikflaschen. Ein T-Shirt. Jedes Kleidungsst&uuml;ck aus recyceltem Polyester reduziert unsere Abh&auml;ngigkeit von Erd&ouml;l &mdash; und sch&uuml;tzt Ozeane und B&ouml;den vor Plastikm&uuml;ll.</p>
+<div class="nw-callout"><span class="nw-callout-icon">♻</span>
+<div><strong>79 % weniger CO₂</strong> Recyceltes Polyester erzeugt 79 % weniger CO₂-Emissionen als Neupolyester &mdash; bei gleicher Performance.</div>
+</div>
+<h3 class="nw-h3">Nat&uuml;rliche Fasern ausschlie&szlig;lich in GOTS-zertifizierter Qualit&auml;t.</h3>
+<h3 class="nw-h3">Bis 2027 soll jedes Craft-Kleidungsst&uuml;ck vollst&auml;ndig aus nachhaltigen Materialien bestehen.</h3>
+</div>
+</div>
+</section>
+<section class="nw-section-materials">
+<div class="nw-materials-inner"><span class="nw-spundyed-eyebrow">Standards &amp; Zertifizierungen</span>
+<h2 class="nw-h2" style="color: var(--nw-white);">Wir messen, was z&auml;hlt.</h2>
+<p class="nw-text" style="color: rgba(219,217,204,0.75); max-width: 600px; margin: 0 auto;">Jede Faser, jede Farbe, jede Verarbeitung steht unter dem Anspruch nachgewiesener Verantwortung.</p>
+<div class="nw-cert-grid">
+<div class="nw-cert-pill">GOTS-zertifizierte Fasern</div>
+<div class="nw-cert-pill">Recyceltes Polyester (GRS)</div>
+<div class="nw-cert-pill">SPUN DYED Technologie</div>
+<div class="nw-cert-pill">Bluesign&reg; Partner</div>
+<div class="nw-cert-pill">Fair Wear Foundation</div>
+<div class="nw-cert-pill">Eigene Einkaufsb&uuml;ros</div>
+<div class="nw-cert-pill">CO₂-Monitoring</div>
+<div class="nw-cert-pill">Lebenslange Garantie</div>
+</div>
+</div>
+</section>
+<section class="nw-section-csr">
+<div class="nw-csr-inner">
+<blockquote class="nw-csr-quote">"Echte Verantwortung beginnt dort, wo Transparenz aufh&ouml;rt, unbequem zu sein."</blockquote>
+<div class="nw-csr-box"><span class="nw-eyebrow">Corporate Social Responsibility</span>
+<h2 class="nw-h2" style="font-size: 1.7rem;">Verantwortung &amp; Ethik</h2>
+<p class="nw-text" style="font-size: 0.95rem;">Unser Engagement geht weit &uuml;ber den Umweltschutz hinaus: faire Arbeitsbedingungen, ethische Lieferketten und soziale Verantwortung in jedem unserer M&auml;rkte. Transparenz ist kein Marketinginstrument &mdash; sie ist Unternehmenskultur.</p>
+<a href="https://drive.nwg.se/s/Gwd9pmMkikarbKH?dir=/CSR%20%26%20Nachhaltigkeit&amp;editing=false&amp;openfile=true" target="_blank" class="nw-btn-primary" rel="noopener">&darr; CSR-Bericht herunterladen</a></div>
+</div>
+</section>
+<section class="nw-section-guarantee">
+<div class="nw-guarantee-wrap">
+<div class="nw-guarantee-badge"><span class="nw-badge-icon">&infin;</span>
+<div class="nw-badge-title">Lebenslange<br>Garantie</div>
+<div class="nw-badge-sub">Seit HW 2022</div>
+</div>
+<div class="nw-guarantee-content"><span class="nw-eyebrow" style="color: var(--nw-gold);">Langlebigkeit als Strategie</span>
+<h2 class="nw-h2">Trainiere weiter.<br>Wir halten mit.</h2>
+<p class="nw-text">Je l&auml;nger ein Produkt seinen Zweck erf&uuml;llt, desto geringer sein &ouml;kologischer Fu&szlig;abdruck. Analysen belegen: <strong>Ein Kleidungsst&uuml;ck, das doppelt so lange in Gebrauch ist, entlastet die Umwelt um 49 %.</strong></p>
+<div class="nw-highlight-box">
+<h3 class="nw-h3" style="font-size: 1.1rem; margin-bottom: 8px;">Lebenslange Garantie auf alle Craft Baselayer</h3>
+<p class="nw-text" style="font-size: 0.92rem; margin-bottom: 0; color: var(--nw-text-muted);">Seit Herbst/Winter 2022: Jeder Craft Baselayer ist auf Material und Verarbeitung ohne zeitliche Begrenzung garantiert. Weil Qualit&auml;t keine Ablaufdaten kennt.</p>
+</div>
+<p class="nw-text-sm" style="font-style: italic;">Ausnahmen: Fehlgebrauch, Unf&auml;lle, Sch&auml;den durch Tiere oder Naturkatastrophen. R&uuml;cksendekosten tr&auml;gt der Kunde.</p>
+<a href="mailto:customercare-de@craftsportswear.com" class="nw-btn-outline">&rarr; Reklamation anmelden</a></div>
+</div>
+</section>
+</div>
