@@ -1,0 +1,1296 @@
+<!-- ══════════════════════════════════════════════════════
+     NEW WAVE — SERVICE PORTAL  (www.newwave-germany.de/service-3)
+     BLOQUE 1: Script/Style — Optimizely CMS
+     ══════════════════════════════════════════════════════ -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400;1,8..60,600&family=Jost:wght@300;400;500;600;700&display=swap');
+
+/* ── RESET scoped ── */
+.nw-srv *, .nw-srv *::before, .nw-srv *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── ROOT ── */
+.nw-srv {
+  font-family: 'Jost', 'Century Gothic', 'Futura', sans-serif;
+  background: #f3f3f1;
+  color: #002b49;
+  -webkit-font-smoothing: antialiased;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* ══════════════════════════════════════
+   HERO
+   ══════════════════════════════════════ */
+.nw-srv__hero {
+  background: #002b49;
+  position: relative;
+  overflow: hidden;
+}
+
+.nw-srv__hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 18% 55%, rgba(139,115,78,0.16) 0%, transparent 58%),
+    radial-gradient(ellipse at 80% 10%, rgba(219,217,204,0.05) 0%, transparent 45%);
+  pointer-events: none;
+}
+
+.nw-srv__hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px;
+  display: grid;
+  grid-template-columns: 1fr 440px;
+  min-height: 400px;
+  align-items: stretch;
+}
+
+.nw-srv__hero-content {
+  padding: 68px 60px 68px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.nw-srv__hero-eyebrow {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: #8b734e;
+  margin-bottom: 22px;
+}
+
+.nw-srv__hero-h1-sans {
+  font-family: 'Jost', 'Century Gothic', sans-serif;
+  font-size: clamp(38px, 4.2vw, 60px);
+  font-weight: 700;
+  line-height: 1.0;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+}
+
+.nw-srv__hero-h1-serif {
+  font-family: 'Source Serif 4', serif;
+  font-size: clamp(38px, 4.2vw, 60px);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #dbd9cc;
+  margin-bottom: 26px;
+}
+
+.nw-srv__hero-body {
+  font-family: 'Source Serif 4', serif;
+  font-size: 15px;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.78;
+  color: rgba(219,217,204,0.65);
+  max-width: 390px;
+  margin-bottom: 36px;
+}
+
+.nw-srv__hero-pills {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.nw-srv__hero-pill {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(219,217,204,0.55);
+  border: 1px solid rgba(219,217,204,0.18);
+  padding: 8px 14px;
+  text-decoration: none;
+  transition: color 0.28s ease, border-color 0.28s ease, background 0.28s ease;
+  cursor: pointer;
+}
+
+.nw-srv__hero-pill:hover {
+  color: #ffffff;
+  border-color: #8b734e;
+  background: rgba(139,115,78,0.12);
+}
+
+/* ── hero image ── */
+.nw-srv__hero-image {
+  position: relative;
+  overflow: hidden;
+  background: #001a2e;
+  min-height: 400px;
+}
+
+.nw-srv__hero-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0.72;
+  transition: transform 0.65s cubic-bezier(0.2,0,0,1), opacity 0.4s ease;
+}
+
+.nw-srv__hero-image:hover img {
+  transform: scale(1.045);
+  opacity: 0.84;
+}
+
+.nw-srv__season-tag {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  background: #ffffff;
+  padding: 10px 18px;
+  z-index: 2;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.22);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nw-srv__hero-image:hover .nw-srv__season-tag {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.32);
+}
+
+.nw-srv__season-tag-label {
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(0,43,73,0.4);
+  margin-bottom: 3px;
+}
+
+.nw-srv__season-tag-value {
+  font-family: 'Source Serif 4', serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #002b49;
+}
+
+/* ══════════════════════════════════════
+   SECTION HELPERS
+   ══════════════════════════════════════ */
+.nw-srv__section {
+  padding: 72px 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.nw-srv__section-label {
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #8b734e;
+  margin-bottom: 12px;
+}
+
+.nw-srv__section-heading {
+  font-family: 'Source Serif 4', serif;
+  font-size: clamp(26px, 2.8vw, 36px);
+  font-weight: 300;
+  color: #002b49;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.nw-srv__section-desc {
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(0,43,73,0.6);
+  max-width: 540px;
+  margin-bottom: 44px;
+  line-height: 1.78;
+}
+
+.nw-srv__divider {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+.nw-srv__divider-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(139,115,78,0.22), transparent);
+}
+
+/* ══════════════════════════════════════
+   TOOLS GRID — 4 Cards
+   ══════════════════════════════════════ */
+.nw-srv__tools-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.nw-srv__tool-card {
+  background: #ffffff;
+  border: 1px solid rgba(0,43,73,0.07);
+  padding: 36px 28px 32px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.2,0,0,1), box-shadow 0.35s ease;
+}
+
+.nw-srv__tool-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #8b734e, #dbd9cc);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.nw-srv__tool-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 44px rgba(0,43,73,0.1);
+}
+
+.nw-srv__tool-card:hover::after {
+  transform: scaleX(1);
+}
+
+.nw-srv__tool-icon {
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(139,115,78,0.28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8b734e;
+  font-size: 17px;
+  margin-bottom: 20px;
+}
+
+.nw-srv__tool-title {
+  font-family: 'Source Serif 4', serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: #002b49;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.nw-srv__tool-text {
+  font-size: 13px;
+  font-weight: 300;
+  color: rgba(0,43,73,0.58);
+  line-height: 1.68;
+}
+
+/* ══════════════════════════════════════
+   BENTO HIGHLIGHT — 3 Editorial Cards
+   ══════════════════════════════════════ */
+.nw-srv__bento-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px 72px;
+}
+
+.nw-srv__bento {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 280px 280px;
+  gap: 8px;
+}
+
+.nw-srv__bc {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.38s cubic-bezier(0.2,0,0,1), box-shadow 0.38s ease;
+  will-change: transform;
+}
+
+.nw-srv__bc:hover {
+  transform: scale(1.022);
+  z-index: 2;
+}
+
+/* Card placements */
+.nw-srv__bc--download   { grid-column: 1 / 2; grid-row: 1 / 3; background: #dbd9cc; }
+.nw-srv__bc--stammdaten { grid-column: 2 / 3; grid-row: 1;      background: #002b49; }
+.nw-srv__bc--pantone    { grid-column: 2 / 3; grid-row: 2;      background: #8b734e; }
+
+.nw-srv__bc--download:hover  { box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
+.nw-srv__bc--stammdaten:hover { box-shadow: 0 18px 52px rgba(0,0,0,0.32); }
+.nw-srv__bc--pantone:hover   { box-shadow: 0 14px 44px rgba(139,115,78,0.5); }
+
+.nw-srv__bc img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.65s cubic-bezier(0.2,0,0,1);
+}
+
+.nw-srv__bc:hover img {
+  transform: scale(1.06);
+}
+
+.nw-srv__bc-inner {
+  position: absolute;
+  inset: 0;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.nw-srv__bc-top {}
+
+.nw-srv__bc-eyebrow {
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(0,43,73,0.38);
+}
+
+.nw-srv__bc-eyebrow--light { color: rgba(255,255,255,0.38); }
+
+.nw-srv__bc-icon-box {
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(255,255,255,0.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.55);
+  font-size: 14px;
+  float: right;
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.nw-srv__bc:hover .nw-srv__bc-icon-box {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.35);
+}
+
+.nw-srv__bc-bottom {}
+
+.nw-srv__bc-title {
+  font-family: 'Jost', 'Century Gothic', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #002b49;
+  margin-bottom: 8px;
+  line-height: 1.1;
+}
+
+.nw-srv__bc-title--light { color: #ffffff; }
+
+.nw-srv__bc-desc {
+  font-family: 'Source Serif 4', serif;
+  font-style: italic;
+  font-size: 13px;
+  font-weight: 300;
+  color: rgba(0,43,73,0.5);
+  line-height: 1.62;
+  max-width: 290px;
+  margin-bottom: 16px;
+}
+
+.nw-srv__bc-desc--light { color: rgba(255,255,255,0.58); }
+
+.nw-srv__bc-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.nw-srv__bc-tag {
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.45);
+}
+
+/* Arrow CTA (reusable) */
+.nw-srv__cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #002b49;
+  text-decoration: none;
+  transition: gap 0.25s ease, color 0.25s ease;
+}
+
+.nw-srv__cta-link::after {
+  content: '→';
+  font-size: 13px;
+  transition: transform 0.25s ease;
+}
+
+.nw-srv__bc:hover .nw-srv__cta-link { gap: 14px; color: #8b734e; }
+.nw-srv__bc:hover .nw-srv__cta-link::after { transform: translateX(4px); }
+
+.nw-srv__cta-link--light { color: rgba(255,255,255,0.7); }
+.nw-srv__bc:hover .nw-srv__cta-link--light { color: #ffffff; gap: 14px; }
+
+/* ══════════════════════════════════════
+   BILDER HERUNTERLADEN
+   ══════════════════════════════════════ */
+.nw-srv__bilder-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 16px;
+  align-items: start;
+}
+
+.nw-srv__bilder-main {
+  position: relative;
+  overflow: hidden;
+  background: #dbd9cc;
+}
+
+.nw-srv__bilder-main img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.65s cubic-bezier(0.2,0,0,1);
+}
+
+.nw-srv__bilder-main:hover img {
+  transform: scale(1.04);
+}
+
+.nw-srv__bilder-main-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,43,73,0.72) 0%, transparent 55%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 28px 30px;
+  pointer-events: none;
+}
+
+.nw-srv__bilder-main-tag {
+  font-size: 9px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: #8b734e;
+  margin-bottom: 6px;
+}
+
+.nw-srv__bilder-main-count {
+  font-family: 'Source Serif 4', serif;
+  font-size: 22px;
+  font-weight: 300;
+  font-style: italic;
+  color: #ffffff;
+}
+
+.nw-srv__bilder-cats {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.nw-srv__bilder-cat {
+  display: flex;
+  gap: 14px;
+  background: #ffffff;
+  border: 1px solid rgba(0,43,73,0.06);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.nw-srv__bilder-cat:hover {
+  box-shadow: 0 8px 28px rgba(0,43,73,0.1);
+  transform: translateX(3px);
+}
+
+.nw-srv__bilder-cat-thumb {
+  flex-shrink: 0;
+  width: 90px;
+  height: 72px;
+  position: relative;
+  overflow: hidden;
+  background: #dbd9cc;
+}
+
+.nw-srv__bilder-cat-thumb img {
+  width: 100%;
+  height: 72px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.nw-srv__bilder-cat:hover .nw-srv__bilder-cat-thumb img {
+  transform: scale(1.08);
+}
+
+.nw-srv__bilder-cat-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,43,73,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.28s ease;
+  pointer-events: none;
+}
+
+.nw-srv__bilder-cat:hover .nw-srv__bilder-cat-overlay {
+  opacity: 1;
+}
+
+.nw-srv__bilder-cat-dl {
+  font-size: 20px;
+  color: #ffffff;
+}
+
+.nw-srv__bilder-cat-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 12px 14px 12px 0;
+}
+
+.nw-srv__bilder-cat-label {
+  font-size: 9px;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: #8b734e;
+  margin-bottom: 4px;
+}
+
+.nw-srv__bilder-cat-name {
+  font-family: 'Source Serif 4', serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #002b49;
+  margin-bottom: 3px;
+}
+
+.nw-srv__bilder-cat-meta {
+  font-size: 11px;
+  font-weight: 300;
+  color: rgba(0,43,73,0.42);
+  letter-spacing: 0.04em;
+}
+
+.nw-srv__bilder-all-btn {
+  display: block;
+  margin-top: 4px;
+  padding: 14px 20px;
+  background: #002b49;
+  color: #dbd9cc;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.nw-srv__bilder-all-btn:hover {
+  background: #8b734e;
+  color: #ffffff;
+}
+
+/* ══════════════════════════════════════
+   TUTORIALS — 2×2 Grid
+   ══════════════════════════════════════ */
+.nw-srv__tutorials-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.nw-srv__tutorial-card {
+  display: flex;
+  gap: 22px;
+  background: #ffffff;
+  border: 1px solid rgba(0,43,73,0.06);
+  padding: 26px;
+  transition: box-shadow 0.35s ease, transform 0.35s ease;
+}
+
+.nw-srv__tutorial-card:hover {
+  box-shadow: 0 8px 32px rgba(0,43,73,0.09);
+  transform: translateY(-2px);
+}
+
+.nw-srv__tutorial-thumb {
+  flex-shrink: 0;
+  width: 110px;
+  height: 82px;
+  background: #002b49;
+  overflow: hidden;
+  position: relative;
+}
+
+.nw-srv__tutorial-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.nw-srv__play {
+  width: 30px;
+  height: 30px;
+  border: 1.5px solid rgba(255,255,255,0.6);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.nw-srv__tutorial-card:hover .nw-srv__play {
+  background: rgba(255,255,255,0.18);
+  border-color: #ffffff;
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+.nw-srv__tutorial-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.nw-srv__tutorial-tag {
+  font-size: 9px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: #8b734e;
+  margin-bottom: 7px;
+}
+
+.nw-srv__tutorial-title {
+  font-family: 'Source Serif 4', serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #002b49;
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.nw-srv__tutorial-desc {
+  font-size: 12.5px;
+  font-weight: 300;
+  color: rgba(0,43,73,0.52);
+  line-height: 1.62;
+}
+
+/* ══════════════════════════════════════
+   DOWNLOAD BANNER (dark navy)
+   ══════════════════════════════════════ */
+.nw-srv__dl-banner {
+  background: #002b49;
+  position: relative;
+  overflow: hidden;
+}
+
+.nw-srv__dl-banner::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 55%;
+  height: 100%;
+  background: radial-gradient(ellipse at 80% 50%, rgba(139,115,78,0.13) 0%, transparent 62%);
+  pointer-events: none;
+}
+
+.nw-srv__dl-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 64px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+  position: relative;
+}
+
+.nw-srv__dl-text .nw-srv__section-heading { color: #ffffff; margin-bottom: 12px; }
+.nw-srv__dl-text .nw-srv__section-label   { color: #8b734e; }
+
+.nw-srv__dl-text p {
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(219,217,204,0.68);
+  line-height: 1.78;
+  max-width: 440px;
+}
+
+.nw-srv__dl-items {
+  display: flex;
+  gap: 14px;
+  flex-shrink: 0;
+}
+
+.nw-srv__dl-item {
+  width: 128px;
+  padding: 24px 14px;
+  border: 1px solid rgba(139,115,78,0.3);
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease;
+}
+
+.nw-srv__dl-item:hover {
+  border-color: #8b734e;
+  background: rgba(139,115,78,0.1);
+  transform: translateY(-3px);
+}
+
+.nw-srv__dl-icon {
+  font-size: 20px;
+  color: #8b734e;
+  margin-bottom: 12px;
+}
+
+.nw-srv__dl-name {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #dbd9cc;
+}
+
+/* ══════════════════════════════════════
+   FEATURE SPLIT — Microshop
+   ══════════════════════════════════════ */
+.nw-srv__feature {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 420px;
+}
+
+.nw-srv__feature-img {
+  position: relative;
+  overflow: hidden;
+  background: #dbd9cc;
+}
+
+.nw-srv__feature-img img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.65s cubic-bezier(0.2,0,0,1);
+}
+
+.nw-srv__feature:hover .nw-srv__feature-img img {
+  transform: scale(1.035);
+}
+
+.nw-srv__feature-content {
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 64px 56px;
+}
+
+.nw-srv__feature-content .nw-srv__section-heading { margin-bottom: 16px; }
+
+.nw-srv__feature-content p {
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(0,43,73,0.62);
+  line-height: 1.78;
+  margin-bottom: 32px;
+  max-width: 400px;
+}
+
+/* ── Buttons ── */
+.nw-srv__btn {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #002b49;
+  border: 1px solid #002b49;
+  padding: 14px 32px;
+  text-decoration: none;
+  align-self: flex-start;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.nw-srv__btn:hover { background: #002b49; color: #ffffff; }
+
+.nw-srv__btn--gold {
+  color: #8b734e;
+  border-color: #8b734e;
+}
+
+.nw-srv__btn--gold:hover { background: #8b734e; color: #ffffff; }
+
+.nw-srv__btn--light {
+  color: #dbd9cc;
+  border-color: rgba(219,217,204,0.4);
+}
+
+.nw-srv__btn--light:hover { background: #8b734e; border-color: #8b734e; color: #ffffff; }
+
+/* ══════════════════════════════════════
+   QUOTE
+   ══════════════════════════════════════ */
+.nw-srv__quote {
+  padding: 80px 48px;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.nw-srv__quote-mark {
+  font-family: 'Source Serif 4', serif;
+  font-size: 54px;
+  color: #8b734e;
+  opacity: 0.32;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.nw-srv__quote-text {
+  font-family: 'Source Serif 4', serif;
+  font-style: italic;
+  font-size: clamp(20px, 2.4vw, 28px);
+  font-weight: 300;
+  color: #002b49;
+  line-height: 1.57;
+  letter-spacing: -0.01em;
+  margin-bottom: 28px;
+}
+
+.nw-srv__quote-source {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(0,43,73,0.28);
+}
+
+.nw-srv__quote-source::before,
+.nw-srv__quote-source::after {
+  content: '';
+  width: 40px;
+  height: 1px;
+  background: rgba(0,43,73,0.15);
+  flex-shrink: 0;
+}
+
+/* ══════════════════════════════════════
+   BRANDS STRIP
+   ══════════════════════════════════════ */
+.nw-srv__brands {
+  background: #ffffff;
+  padding: 52px 48px;
+  text-align: center;
+}
+
+.nw-srv__brands-label {
+  font-size: 10px;
+  letter-spacing: 0.30em;
+  text-transform: uppercase;
+  color: #8b734e;
+  margin-bottom: 32px;
+}
+
+.nw-srv__brands-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 52px;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* ── CAMBIO 1/2: contenedor uniforme para todos los logos ── */
+.nw-srv__brand-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 140px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+/* ── CAMBIO 2/2: contenedor cuadrado para el logo iconic de C&B ── */
+.nw-srv__brand-item--iconic {
+  width: 56px;
+  height: 56px;
+}
+
+.nw-srv__brand-logo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0.28;
+  filter: grayscale(100%);
+  transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.nw-srv__brand-item:hover .nw-srv__brand-logo { opacity: 0.75; filter: grayscale(0%); }
+
+/* ══════════════════════════════════════
+   KONTAKT / CTA
+   ══════════════════════════════════════ */
+.nw-srv__contact {
+  background: linear-gradient(162deg, #002b49 0%, #001a2e 100%);
+  text-align: center;
+  padding: 80px 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.nw-srv__contact::after {
+  content: '';
+  position: absolute;
+  bottom: -35%;
+  right: -8%;
+  width: 55%;
+  height: 100%;
+  background: radial-gradient(ellipse, rgba(139,115,78,0.09) 0%, transparent 68%);
+  pointer-events: none;
+}
+
+.nw-srv__contact .nw-srv__section-label { color: #8b734e; position: relative; }
+.nw-srv__contact .nw-srv__section-heading { color: #ffffff; position: relative; margin-bottom: 14px; }
+
+.nw-srv__contact p {
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(219,217,204,0.68);
+  max-width: 440px;
+  margin: 0 auto 36px;
+  line-height: 1.78;
+  position: relative;
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════════════ */
+@media (max-width: 960px) {
+  .nw-srv__hero-inner       { grid-template-columns: 1fr; padding: 0 32px; }
+  .nw-srv__hero-content     { padding: 52px 0 32px; }
+  .nw-srv__hero-image       { min-height: 280px; }
+  .nw-srv__tools-grid       { grid-template-columns: repeat(2, 1fr); }
+  .nw-srv__bento            { grid-template-columns: 1fr 1fr; grid-template-rows: 260px 200px; }
+  .nw-srv__bilder-layout    { grid-template-columns: 1fr; }
+  .nw-srv__feature          { grid-template-columns: 1fr; }
+  .nw-srv__feature-img      { min-height: 280px; }
+  .nw-srv__dl-inner         { flex-direction: column; text-align: center; }
+  .nw-srv__dl-items         { justify-content: center; flex-wrap: wrap; }
+  .nw-srv__section          { padding: 56px 32px; }
+  .nw-srv__bento-wrap       { padding: 0 32px 56px; }
+  .nw-srv__divider          { padding: 0 32px; }
+}
+
+@media (max-width: 600px) {
+  .nw-srv__hero-inner       { padding: 0 20px; }
+  .nw-srv__tools-grid       { grid-template-columns: 1fr; }
+  .nw-srv__bento {
+    grid-template-columns: 1fr;
+    grid-template-rows: 260px 240px 220px;
+  }
+  .nw-srv__bc--download     { grid-row: 1; grid-column: 1; }
+  .nw-srv__bc--stammdaten   { grid-row: 2; grid-column: 1; }
+  .nw-srv__bc--pantone      { grid-row: 3; grid-column: 1; }
+  .nw-srv__tutorials-grid   { grid-template-columns: 1fr; }
+  .nw-srv__section          { padding: 48px 20px; }
+  .nw-srv__bento-wrap       { padding: 0 20px 48px; }
+  .nw-srv__divider          { padding: 0 20px; }
+  .nw-srv__brands           { padding: 44px 20px; }
+  .nw-srv__brands-row       { gap: 28px; }
+  .nw-srv__quote            { padding: 56px 20px; }
+  .nw-srv__dl-inner         { padding: 48px 20px; }
+  .nw-srv__contact          { padding: 64px 20px; }
+  .nw-srv__feature-content  { padding: 48px 28px; }
+}
+</style>
+<!-- ══════════════════════════════════════════════════════
+     BLOQUE 2: Rich Text / TinyMCE — Optimizely CMS
+     Bilder: src="..." durch deine Optimizely-URL ersetzen
+     ══════════════════════════════════════════════════════ -->
+<div class="nw-srv"><!-- ═══ HERO ═══ -->
+<div class="nw-srv__hero">
+<div class="nw-srv__hero-inner">
+<div class="nw-srv__hero-content">
+<div class="nw-srv__hero-eyebrow">New Wave GmbH &mdash; B2B</div>
+<div class="nw-srv__hero-h1-sans">Willkommen im</div>
+<div class="nw-srv__hero-h1-serif">Service‑Portal</div>
+<p class="nw-srv__hero-body">Alle Ressourcen, Tools und Kataloge &ndash; zentral an einem Ort. Entdecke unsere B2B-Werkzeuge und bring deinen Workflow auf das n&auml;chste Level.</p>
+<div class="nw-srv__hero-pills"><span class="nw-srv__hero-pill">Download-Portal</span> <span class="nw-srv__hero-pill">Artikelstammdaten</span> <span class="nw-srv__hero-pill">Tutorials</span> <span class="nw-srv__hero-pill">Kataloge</span></div>
+</div>
+<!-- CMS: src durch deine Optimizely-URL ersetzen -->
+<div class="nw-srv__hero-image"><img src="/epiui/CMS/Content/contentassets/3715c56f7d2c4943ba0462167d5c0105/craft_running_hypervent_ss26_00046.jpg,,168267?epieditmode=false" alt="New Wave Service Portal" width="761" height="253">
+<div class="nw-srv__season-tag">
+<div class="nw-srv__season-tag-label">Neue Kollektion</div>
+<div class="nw-srv__season-tag-value">Herbst / Winter</div>
+</div>
+</div>
+</div>
+</div>
+<!-- /HERO --> <!-- ═══ TOOLS GRID ═══ -->
+<div class="nw-srv__section">
+<div class="nw-srv__section-label">Ihr B2B-Werkzeugkasten</div>
+<h2 class="nw-srv__section-heading">Alles, was Du f&uuml;r Deinen Business brauchst</h2>
+<p class="nw-srv__section-desc">Nutze unsere professionellen Tools und Ressourcen, um Bestellungen effizient zu verwalten und Deine Kunden bestm&ouml;glich zu beraten.</p>
+<div class="nw-srv__tools-grid">
+<div class="nw-srv__tool-card">
+<div class="nw-srv__tool-icon">&dArr;</div>
+<div class="nw-srv__tool-title">Download‑Portal</div>
+<div class="nw-srv__tool-text">Greife auf alle Logos, Produktbilder, Druckdaten und Marketingmaterialien direkt &uuml;ber unser zentrales Portal zu.</div>
+</div>
+<div class="nw-srv__tool-card">
+<div class="nw-srv__tool-icon">☰</div>
+<div class="nw-srv__tool-title">Artikelstammdaten</div>
+<div class="nw-srv__tool-text">Exportiere detaillierte Artikelinformationen und technische Daten als Excel f&uuml;r Dein ERP-System.</div>
+</div>
+<div class="nw-srv__tool-card">
+<div class="nw-srv__tool-icon">★</div>
+<div class="nw-srv__tool-title">Bilder Herunterladen</div>
+<div class="nw-srv__tool-text">Hochaufl&ouml;sende Produktbilder und Lifestyle-Fotos &ndash; bereit f&uuml;r Webshop, Katalog oder Social Media.</div>
+</div>
+<div class="nw-srv__tool-card">
+<div class="nw-srv__tool-icon">●</div>
+<div class="nw-srv__tool-title">Pantone Farbkarten</div>
+<div class="nw-srv__tool-text">Pr&auml;zise Farbreferenzen unserer Kollektionen &ndash; unverzichtbar f&uuml;r Veredelung und Druck.</div>
+</div>
+</div>
+</div>
+<!-- /TOOLS GRID --> <!-- ═══ BENTO HIGHLIGHT ═══ -->
+<div class="nw-srv__bento-wrap">
+<div class="nw-srv__bento"><!-- Download Portal (large, left) -->
+<div class="nw-srv__bc nw-srv__bc--download"><!-- CMS: Hintergrundbild optional -->
+<div class="nw-srv__bc-inner">
+<div class="nw-srv__bc-top">
+<div class="nw-srv__bc-eyebrow">Service</div>
+</div>
+<div class="nw-srv__bc-bottom"><span style="font-size: 22px; color: #8b734e; display: block; margin-bottom: 16px;">&dArr;</span>
+<div class="nw-srv__bc-title">Download<br>Portal</div>
+<div class="nw-srv__bc-desc">Zentraler Zugriff auf alle digitalen Assets und technische Dokumentation f&uuml;r Partner.</div>
+<a href="#" class="nw-srv__cta-link">Jetzt zugreifen</a></div>
+</div>
+</div>
+<!-- Artikelstammdaten (dark navy, top-right) -->
+<div class="nw-srv__bc nw-srv__bc--stammdaten">
+<div class="nw-srv__bc-inner">
+<div class="nw-srv__bc-top">
+<div class="nw-srv__bc-eyebrow nw-srv__bc-eyebrow--light">ERP-Integration</div>
+<div class="nw-srv__bc-icon-box">↗</div>
+</div>
+<div class="nw-srv__bc-bottom">
+<div class="nw-srv__bc-title nw-srv__bc-title--light">Artikelstammdaten</div>
+<div class="nw-srv__bc-desc nw-srv__bc-desc--light">Pr&auml;zise Daten f&uuml;r Dein System &mdash; vollst&auml;ndig strukturiert.</div>
+<div class="nw-srv__bc-tags"><span class="nw-srv__bc-tag">PDF</span> <span class="nw-srv__bc-tag">XML</span> <span class="nw-srv__bc-tag">CSV</span></div>
+</div>
+</div>
+</div>
+<!-- Pantone (gold, bottom-right) -->
+<div class="nw-srv__bc nw-srv__bc--pantone">
+<div class="nw-srv__bc-inner">
+<div class="nw-srv__bc-top">
+<div class="nw-srv__bc-eyebrow nw-srv__bc-eyebrow--light">Farbsystem</div>
+</div>
+<div class="nw-srv__bc-bottom">
+<div class="nw-srv__bc-title nw-srv__bc-title--light">Pantone<br>Farbkarten</div>
+<div class="nw-srv__bc-desc nw-srv__bc-desc--light">Kollektionsweise Farbreferenzen. Pr&auml;zise, saisonaktuell.</div>
+<a href="#" class="nw-srv__cta-link nw-srv__cta-link--light">Entdecken</a></div>
+</div>
+</div>
+</div>
+</div>
+<!-- /BENTO --> <!-- ═══ BILDER HERUNTERLADEN ═══ -->
+<div class="nw-srv__section">
+<div class="nw-srv__section-label">Bildmaterial</div>
+<h2 class="nw-srv__section-heading">Bilder Herunterladen</h2>
+<p class="nw-srv__section-desc">Lerne, wie Du hochaufl&ouml;sende Kampagnenbilder und Packshots direkt &uuml;ber die Export-Tool unseres B2B-Shops herunterl&auml;dst &ndash; schnell, strukturiert und immer saisonaktuell. Unsere Tutorials f&uuml;hren Dich Schritt f&uuml;r Schritt durch den Prozess.</p>
+<div class="nw-srv__bilder-layout"><!-- Großes Hauptbild links -->
+<div class="nw-srv__bilder-main"><!-- CMS: src durch deine Optimizely-URL ersetzen --> <img src="/epiui/CMS/Content/contentassets/3715c56f7d2c4943ba0462167d5c0105/craft_insulation_layers_ss26_00001.jpg,,168266?epieditmode=false" alt="Kampagnenbild Vorschau" width="1536" height="1025">
+<div class="nw-srv__bilder-main-overlay">
+<div class="nw-srv__bilder-main-tag">Export-Tool Tutorial</div>
+<div class="nw-srv__bilder-main-count">So l&auml;dst Du Bilder aus dem B2B-Shop herunter</div>
+</div>
+</div>
+<!-- Rechte Spalte: Kategorien -->
+<div class="nw-srv__bilder-cats">
+<div class="nw-srv__bilder-cat">
+<div class="nw-srv__bilder-cat-thumb"><img src="/globalassets/new-wave-germany/service/thumb-packshots.jpg" alt="Packshots" width="200" height="140">
+<div class="nw-srv__bilder-cat-overlay"><span class="nw-srv__bilder-cat-dl">▶</span></div>
+</div>
+<div class="nw-srv__bilder-cat-info">
+<div class="nw-srv__bilder-cat-label">Tutorial &bull; Export-Tool</div>
+<div class="nw-srv__bilder-cat-name">Packshots herunterladen</div>
+<div class="nw-srv__bilder-cat-meta">Freigestellt &bull; Wei&szlig;er Hintergrund</div>
+</div>
+</div>
+<div class="nw-srv__bilder-cat">
+<div class="nw-srv__bilder-cat-thumb"><img src="/globalassets/new-wave-germany/service/thumb-lifestyle.jpg" alt="Lifestyle" width="200" height="140">
+<div class="nw-srv__bilder-cat-overlay"><span class="nw-srv__bilder-cat-dl">▶</span></div>
+</div>
+<div class="nw-srv__bilder-cat-info">
+<div class="nw-srv__bilder-cat-label">Tutorial &bull; Export-Tool</div>
+<div class="nw-srv__bilder-cat-name">Lifestyle &amp; Kampagnenbilder</div>
+<div class="nw-srv__bilder-cat-meta">High-Res &bull; Alle Marken</div>
+</div>
+</div>
+<div class="nw-srv__bilder-cat">
+<div class="nw-srv__bilder-cat-thumb"><img src="/globalassets/new-wave-germany/service/thumb-logos.jpg" alt="Logos &amp; CI" width="200" height="140">
+<div class="nw-srv__bilder-cat-overlay"><span class="nw-srv__bilder-cat-dl">&dArr;</span></div>
+</div>
+<div class="nw-srv__bilder-cat-info">
+<div class="nw-srv__bilder-cat-label">Brand Assets</div>
+<div class="nw-srv__bilder-cat-name">Logos &amp; CI-Material</div>
+<div class="nw-srv__bilder-cat-meta">SVG &bull; PNG &bull; EPS</div>
+</div>
+</div>
+<a href="#" class="nw-srv__bilder-all-btn">Zu den Bild-Tutorials &nbsp;↗</a></div>
+</div>
+</div>
+<!-- /BILDER HERUNTERLADEN --> <!-- ═══ TUTORIALS ═══ -->
+<div class="nw-srv__section">
+<div class="nw-srv__section-label">Video-Tutorials</div>
+<h2 class="nw-srv__section-heading">Schritt f&uuml;r Schritt erkl&auml;rt</h2>
+<p class="nw-srv__section-desc">Unsere Anleitungen helfen Dir, das Beste aus unseren Tools herauszuholen &ndash; schnell und unkompliziert.</p>
+<div class="nw-srv__tutorials-grid">
+<div class="nw-srv__tutorial-card">
+<div class="nw-srv__tutorial-thumb"><!-- CMS: Thumbnail durch URL ersetzen -->
+<div class="nw-srv__play">▶</div>
+</div>
+<div class="nw-srv__tutorial-info">
+<div class="nw-srv__tutorial-tag">Tutorial</div>
+<div class="nw-srv__tutorial-title">Bestellung im Webshop aufgeben</div>
+<div class="nw-srv__tutorial-desc">Vom Warenkorb bis zur Best&auml;tigung &ndash; so einfach bestellst Du bei uns.</div>
+</div>
+</div>
+<div class="nw-srv__tutorial-card">
+<div class="nw-srv__tutorial-thumb">
+<div class="nw-srv__play">▶</div>
+</div>
+<div class="nw-srv__tutorial-info">
+<div class="nw-srv__tutorial-tag">Tutorial</div>
+<div class="nw-srv__tutorial-title">Microshop einrichten</div>
+<div class="nw-srv__tutorial-desc">Erfahre, wie Du in wenigen Minuten Deinen eigenen Firmenshop anlegst.</div>
+</div>
+</div>
+<div class="nw-srv__tutorial-card">
+<div class="nw-srv__tutorial-thumb">
+<div class="nw-srv__play">▶</div>
+</div>
+<div class="nw-srv__tutorial-info">
+<div class="nw-srv__tutorial-tag">Tutorial</div>
+<div class="nw-srv__tutorial-title">Artikelstammdaten exportieren</div>
+<div class="nw-srv__tutorial-desc">So l&auml;dst Du Produktdaten als CSV oder Excel f&uuml;r Dein ERP herunter.</div>
+</div>
+</div>
+<div class="nw-srv__tutorial-card">
+<div class="nw-srv__tutorial-thumb">
+<div class="nw-srv__play">▶</div>
+</div>
+<div class="nw-srv__tutorial-info">
+<div class="nw-srv__tutorial-tag">Tutorial</div>
+<div class="nw-srv__tutorial-title">Bilder &amp; Logos herunterladen</div>
+<div class="nw-srv__tutorial-desc">Finde und lade hochaufl&ouml;sende Produktbilder &uuml;ber unseren B2B-Shop.</div>
+</div>
+</div>
+</div>
+</div>
+<!-- /TUTORIALS --> <!-- ═══ DOWNLOAD BANNER ═══ -->
+<div class="nw-srv__dl-banner">
+<div class="nw-srv__dl-inner">
+<div class="nw-srv__dl-text">
+<div class="nw-srv__section-label">Download-Center</div>
+<h2 class="nw-srv__section-heading">Materialien f&uuml;r Dein Gesch&auml;ft</h2>
+<p>Lade Preislisten, Logos, Veredelungsvorlagen und weitere Dokumente direkt herunter &ndash; immer aktuell, immer verf&uuml;gbar.</p>
+</div>
+<div class="nw-srv__dl-items">
+<div class="nw-srv__dl-item">
+<div class="nw-srv__dl-icon">&dArr;</div>
+<div class="nw-srv__dl-name">Preislisten</div>
+</div>
+<div class="nw-srv__dl-item">
+<div class="nw-srv__dl-icon">&dArr;</div>
+<div class="nw-srv__dl-name">Logos</div>
+</div>
+<div class="nw-srv__dl-item">
+<div class="nw-srv__dl-icon">&dArr;</div>
+<div class="nw-srv__dl-name">Vorlagen</div>
+</div>
+</div>
+</div>
+</div>
+<!-- /DOWNLOAD BANNER --> <!-- ═══ FEATURE SPLIT — Microshop ═══ -->
+<div class="nw-srv__feature"><!-- CMS: Microshop-Screenshot durch URL ersetzen -->
+<div class="nw-srv__feature-img"><img src="/epiui/CMS/Content/contentassets/3715c56f7d2c4943ba0462167d5c0105/mockup-microshop-2.jpg,,168554?epieditmode=false" alt="Microshop Vorschau" width="1536" height="1023"></div>
+<div class="nw-srv__feature-content">
+<div class="nw-srv__section-label">Microshop-L&ouml;sung</div>
+<h2 class="nw-srv__section-heading">Dein eigener<br>Online‑Microshop</h2>
+<p>Erstelle einen individuellen Microshop f&uuml;r Dein Unternehmen oder Deinen Verein &ndash; mit eigenem Logo, Deinen Farben und einer breiten Produktauswahl. Ideal f&uuml;r Firmenbekleidung und Teamausstattung.</p>
+<a href="#" class="nw-srv__btn">Mehr erfahren</a></div>
+</div>
+<!-- /FEATURE SPLIT --> <!-- ═══ QUOTE ═══ -->
+<div class="nw-srv__quote">
+<div class="nw-srv__quote-mark">&ldquo;</div>
+<p class="nw-srv__quote-text">Qualit&auml;t bedeutet: Der Kunde kommt zur&uuml;ck &ndash; nicht die Ware. Unser Service-Portal ist das Fundament dieser Philosophie.</p>
+<div class="nw-srv__quote-source">Design-Direktion, New Wave GmbH</div>
+</div>
+<!-- /QUOTE --> <!-- ═══ BRANDS STRIP ═══ -->
+<div class="nw-srv__brands">
+<div class="nw-srv__brands-label">Unsere Marken</div>
+<div class="nw-srv__brands-row">
+<div class="nw-srv__brand-item"><img class="nw-srv__brand-logo" src="/epiui/CMS/Content/globalassets/new-wave-germany/ab-2026/logos/craft-logo-blk.png,,168128?epieditmode=false" alt="Craft" width="1182" height="253"></div>
+<!-- CAMBIO: clase --iconic para el logo cuadrado de C&B -->
+<div class="nw-srv__brand-item nw-srv__brand-item--iconic"><img class="nw-srv__brand-logo" src="/epiui/CMS/Content/globalassets/new-wave-germany/ab-2026/logos/cb_logo_iconic_black.png,,168129?epieditmode=false" alt="Cutter &amp; Buck" width="1156" height="769"></div>
+<div class="nw-srv__brand-item"><img class="nw-srv__brand-logo" src="/epiui/CMS/Content/globalassets/new-wave-germany/ab-2026/logos/clique-1c.png,,168131?epieditmode=false" alt="Clique" width="1536" height="362"></div>
+<div class="nw-srv__brand-item"><img class="nw-srv__brand-logo" src="/epiui/CMS/Content/globalassets/new-wave-germany/ab-2026/logos/um-logo-horizontal-black.png,,168132?epieditmode=false" alt="Untagged Movement" width="1536" height="331"></div>
+</div>
+</div>
+<!-- /BRANDS --> <!-- ═══ KONTAKT / CTA ═══ -->
+<div class="nw-srv__contact">
+<div class="nw-srv__section-label">Kontakt</div>
+<h2 class="nw-srv__section-heading">Fragen? Wir sind f&uuml;r Dich da.</h2>
+<p>Wir unterst&uuml;tzen Dich gerne bei Bestellungen, technischen Fragen oder der Einrichtung Deines Microshops.</p>
+<a href="#" class="nw-srv__btn nw-srv__btn--light">Kontakt aufnehmen</a></div>
+<!-- /KONTAKT --></div>
+<!-- /nw-srv -->
